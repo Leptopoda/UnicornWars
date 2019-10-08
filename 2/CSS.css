@@ -4,7 +4,7 @@ body{
 	padding:0px;
 	margin:0px;
 	overflow:hidden;
-	background-image:url("background.jpg");
+	background-image:url("background.png");
 }
 
 form{
@@ -22,7 +22,7 @@ input {
 	}
 
 #gameoverscreen {
-	background-image:url('background.jpg');
+	background-image:url('background.png');
 	z-index:2;
 	position:absolute;
 	width:100%;
