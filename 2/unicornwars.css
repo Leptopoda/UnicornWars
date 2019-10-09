@@ -6,6 +6,7 @@ body{
 	font-family:Calibri;
 }
 
+
 #button
 {
 
@@ -17,6 +18,11 @@ body{
     position: fixed;
     bottom: 0;
 
+}
+
+#divname{
+	float:right;
+	
 }
 
 #titles
@@ -47,6 +53,7 @@ body{
 	pointer-events: none;
 }
 
+
 #titlecontent
 {
 	position: absolute;
@@ -62,3 +69,31 @@ body{
 p{
 	text-align:justify;
 }
+
+
+#scoreet{
+	background-image:url('score.png');
+	width:400px;
+height:143px;
+float:right;
+}
+
+
+#einet{
+	background-image:url('abschicken.png');
+width:648px;
+height:143px;
+ margin-left: auto;
+  margin-right: auto;
+}
+
+#e1{
+
+margin: 25px 50px 75px;
+width:150px;
+height:50px;
+
+}
+
+
+

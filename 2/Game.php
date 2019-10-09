@@ -5,8 +5,8 @@
         <meta charset="ISO-8859-1">
         <title>GAME</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
-        <script src="./jquery-1.11.3.js"></script>
-        <script src="./JavaScript.js"></script>
+        <script src="jquery-1.11.3.js"></script>
+        <script src="Javascript.js"></script>
     </head>
 
     <body>
@@ -19,26 +19,27 @@
             </form>
         </div>
         <div id='gameoverscreen'>
-                <div id='gameover'>
-                    <img src='gameover.png'/>
-                </div>
-                <div class='hiddenvis'>
-                    <form>
-                        <b id='scorefont'></b><input id='scoredisplay'/>
-						
-                    </form>			
-                </div>
-                <div id='retry'>
-                    <a href='Game.html'><img src='continue.png'/></a>
-                </div>
+			<div id='gameover'>
+				<img src='gameover.png'/>
+			</div>
+			<div id="sw" style="visibility:collapse;">
+                <form action="TestScoreEintrag.php" method="post">
+					<input id="scoredisplay" type="text" name="dauer" readonly="readonly"/>
+			</div>
+				<div id='retry' >
+            
+				<input type="image" src='continue.png' name="sit">
+					</div>
+				</form>
+			
         </div>
 
         
-        <img id="playground" src="Endhintergrund.png"/>
-        <img id="playground2" src="Endhintergrund.png"/>
+        <img id="playground" src="Endhintergrund.jpg"/>
+        <img id="playground2" src="Endhintergrund.jpg"/>
         
-        <img id="bottom" src="Boden.png"/>
-        <img id="bottom2" src="Boden.png"/>
+        <img id="bottom" src="Boden.jpg"/>
+        <img id="bottom2" src="Boden.jpg"/>
         
         <img id="hind1" src="blumen.png" />
         <img id="hind2" src="lollis.png" />
