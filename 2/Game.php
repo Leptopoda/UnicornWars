@@ -19,18 +19,19 @@
             </form>
         </div>
         <div id='gameoverscreen'>
-                <div id='gameover'>
-                    <img src='gameover.png'/>
-                </div>
-                <div class='hiddenvis'>
-                    <form>
-                        <b id='scorefont'></b><input id='scoredisplay'/>
-						
-                    </form>			
-                </div>
-                <div id='retry'>
-                    <a href='Game.html'><img src='continue.png'/></a>
-                </div>
+			<div id='gameover'>
+				<img src='gameover.png'/>
+			</div>
+			<div id="sw" style="visibility:collapse;">
+                <form action="TestScoreEintrag.php" method="post">
+					<input id="scoredisplay" type="text" name="dauer" readonly="readonly"/>
+			</div>
+				<div id='retry' >
+            
+				<input type="image" src='continue.png' name="sit">
+					</div>
+				</form>
+			
         </div>
 
         
