@@ -13,12 +13,12 @@
 		<script>
 			function startTimer(){
 			var tt = setInterval(function() {
-			window.open ('Game.html','_self',false)
+			window.open ('Game.php','_self',false)
 			},60000);
                 }
         </script>
         
-        <a href="Game.html"><img id="button" src='button.png'></a>
+        <a href="Game.php"><img id="button" src='button.png'></a>
         <embed src='Intro.mp3' loop='true' autostart='true' hidden='true' width='0' height='0'>
         <audio preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="Intro.mp3" type="audio/mpeg"></audio>	
 		

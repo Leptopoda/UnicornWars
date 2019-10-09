@@ -19,7 +19,7 @@ margin-left:25%;
 #buttoneintragen{
 	margin-top:2%;
 	margin-left:31%;
-	background-image:url('background.jpg');
+	background-image:url('background.png');
 	
 }
 #divtextfeldn{
@@ -44,7 +44,7 @@ input {
 
 }
 body{
-background-image:url('background.jpg');
+background-image:url('background.png');
 }
 
 td{

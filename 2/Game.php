@@ -5,8 +5,8 @@
         <meta charset="ISO-8859-1">
         <title>GAME</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
-        <script src="jquery-1.11.3.js"></script>
-        <script src="Javascript.js"></script>
+        <script src="./jquery-1.11.3.js"></script>
+        <script src="./JavaScript.js"></script>
     </head>
 
     <body>
@@ -35,11 +35,11 @@
         </div>
 
         
-        <img id="playground" src="Endhintergrund.jpg"/>
-        <img id="playground2" src="Endhintergrund.jpg"/>
+        <img id="playground" src="Endhintergrund.png"/>
+        <img id="playground2" src="Endhintergrund.png"/>
         
-        <img id="bottom" src="Boden.jpg"/>
-        <img id="bottom2" src="Boden.jpg"/>
+        <img id="bottom" src="Boden.png"/>
+        <img id="bottom2" src="Boden.png"/>
         
         <img id="hind1" src="blumen.png" />
         <img id="hind2" src="lollis.png" />

@@ -21,7 +21,7 @@
         
         <center>
             <p><img src='Logo.png'/></p>
-            <a href="Star_Wars.html"><img src="button.png"></a>
+            <a href="Star_Wars.php"><img src="button.png"></a>
         </center>
         
     </body>
