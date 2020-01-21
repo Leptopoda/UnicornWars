@@ -1,4 +1,0 @@
-https://www.php.net/manual/de/tutorial.forms.php
-https://codepen.io/roy23/pen/QMZmZP
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-https://blog.kulturbanause.de/2013/07/einfuhrung-in-das-flexbox-modell-von-css/
