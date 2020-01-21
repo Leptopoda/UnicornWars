@@ -25,7 +25,7 @@ $(window).on("keydown",function(evt){
             if (eventon) {
                 eventon = false; //sperren, des springen, da bereits in sprung
                 document.getElementById("horse").muted = true; //galopp sound stumm stellen
-                document.getElementById("player").src = "/3/Images/sprung1.png";
+                document.getElementById("player").src = "../Images/sprung1.png";
                 clearInterval(laufIn);
                 $(".ein").css({"display":"none"});
                 $("#player").css({"display":"block"});
@@ -71,16 +71,16 @@ function playerup () { //animiert den sprung //@toDo ggf über bilder in einer k
         700,
         "swing",
         function(){
-            document.getElementById("player").src = "/3/Images/sprung2.png";
+            document.getElementById("player").src = "../Images/sprung2.png";
             setTimeout(function() { 
-                document.getElementById("player").src = "/3/Images/sprung3.png",
+                document.getElementById("player").src = "../Images/sprung3.png",
                 $( "#player" ).animate({
                     top:"550px"
                     },
                     700,
                     "swing",
                     function() {
-                      document.getElementById("player").src = "/3/Images/sprung2.png";
+                      document.getElementById("player").src = "../Images/sprung2.png";
                       sprung = false;
                       $("#hilf").css({"display":"block"});
                       $("#player").css({"display":"none"});

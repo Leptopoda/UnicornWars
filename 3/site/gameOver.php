@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>Game Over</title>
-        <link rel="stylesheet" type="text/css" href="/3/Styles/Neu.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/neu.css">
     </head>
 
     <body>
@@ -22,7 +22,7 @@
         <form action="" method="post">
 			<div class="container">
 				<div class="item">
-					<img class="item" src="/3/Images/name.png" alt="name_schrift">
+					<img class="item" src="../Images/name.png" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldname' type="text" name="Username" maxlength='15' placeholder="Bitte Name Eintragen"/>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="/3/Images/score.png" alt="score_schrift">
+					<img class="item" src="../Images/score.png" alt="score_schrift">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldscore' readonly="readonly" type="text" name="score" value="<?php echo $score; ?>" />
@@ -38,10 +38,10 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button id='buttoneintragen' type="submit" style="display:<?php echo$visible?>" name="submit"><img src="/3/Images/abschicken.png"></button>
+					<button id='buttoneintragen' type="submit" style="display:<?php echo$visible?>" name="submit"><img src="../Images/abschicken.png"></button>
 				</div>
 				<div class="item">
-					<a href="/3/site/scoreboard.php"><img src="/3/Images/scoreboard.png" alt="continue_schrift"></a>
+					<a href="../site/scoreboard.php"><img src="../Images/scoreboard.png" alt="continue_schrift"></a>
 				</div>
 			</div>
             

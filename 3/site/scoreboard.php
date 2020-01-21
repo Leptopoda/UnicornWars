@@ -3,22 +3,22 @@
 <html>
     <head>
         <title>scoreboard</title>
-        <link rel="stylesheet" type="text/css" href="/3/Styles/Neu.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/neu.css">
     </head>
 
     <body>
         <div id='divplatzt'>
-            <img src="/3/Images/platz.png" alt="platz_schrift">
+            <img src="../Images/platz.png" alt="platz_schrift">
         </div>
         <div id='divnamet'>
-            <img src="/3/Images/name.png" alt="name_schrift">
+            <img src="../Images/name.png" alt="name_schrift">
         </div>
         <div id='divscoret'>
-            <img src="/3/Images/score.png" alt="score_schrift">
+            <img src="../Images/score.png" alt="score_schrift">
         </div>
 
         <div id='divplayagain' >
-            <a href="/3/site/game.php"><img src="/3/Images/playagain.png" alt="playagain_schrift" /></a>
+            <a href="../site/game.php"><img src="../Images/playagain.png" alt="playagain_schrift" /></a>
         </div>
 
         <?php

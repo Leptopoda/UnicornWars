@@ -4,9 +4,8 @@
 /*CSS.css */
 
 
-
 body{
-	background-image: url("/3/Images/background.png");
+	background-image: url("../Images/background.png");
 	background-size:100% 100%;
 	color:#ff33ee;
 	font-weight:bold;
@@ -41,7 +40,7 @@ input {
 
 
 #gameoverscreen {
-	background-image:url('/3/Images/background.png');
+	background-image:url('../Images/background.png');
 	z-index:2;
 	position:absolute;
 	width:100%;
@@ -252,7 +251,7 @@ p{
 
 
 #scoreet{
-	background-image:url('/3/Images/score.png');
+	background-image:url('../Images/score.png');
 	width:400px;
 height:143px;
 float:right;
@@ -260,7 +259,7 @@ float:right;
 
 
 #einet{
-	background-image:url('/3/Images/abschicken.png');
+	background-image:url('../Images/abschicken.png');
 width:648px;
 height:143px;
  margin-left: auto;

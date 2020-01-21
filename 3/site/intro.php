@@ -4,7 +4,7 @@
 
     <head>
         <title>Intro</title>
-		<link rel="stylesheet" type="text/css" href="/3/Styles/Neu.css">
+		<link rel="stylesheet" type="text/css" href="../Styles/neu.css">
     </head>
     
     <body onload=startTimer();>
@@ -17,9 +17,9 @@
             }
         </script>
         
-        <a href="/3/site/game.php"><img id="button" src='/3/Images/button.png'></a>
-        <embed src='/3/Audio/Intro.mp3' loop='true' autostart='true' hidden='true' width='0' height='0'>
-        <audio preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="/3/Audio/Intro.mp3" type="audio/mpeg"></audio>    
+        <a href="../site/game.php"><img id="button" src='../Images/button.png'></a>
+        <embed src='../Audio/Intro.mp3' loop='true' autostart='true' hidden='true' width='0' height='0'>
+        <audio preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="../Audio/Intro.mp3" type="audio/mpeg"></audio>    
         
         <div id="titles">
             <div id="titlecontent">
