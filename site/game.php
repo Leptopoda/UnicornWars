@@ -4,7 +4,7 @@
     <head>
         <title>GAME</title>
         <link rel="stylesheet" type="text/css" href="../Styles/neu.css">
-	<script src="../scripts/jquery-3.4.1.js"></script>
+	<script src="../scripts/jquery-3.4.1.min.js"></script>
         <script src="../scripts/Game.js"></script>
     </head>
 
