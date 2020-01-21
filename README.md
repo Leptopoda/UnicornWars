@@ -1,0 +1,3 @@
+### UnicronWars
+
+This project is a web based jump and run game. We developed this as a project in School and don't care about this code anymore (not that we ever cared) so feel free to fork ;)
