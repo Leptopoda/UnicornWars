@@ -19,7 +19,7 @@
         </div>
         <div id='gameoverscreen'>
             <div id='gameover'>
-                <img src='../Images/gameover.png'/>
+                <img src='../Images/gameover.webp'/>
             </div>
             <div id="sw" style="visibility:collapse;">
                 <form action="../site/gameOver.php" method="post">
@@ -27,28 +27,28 @@
             </div>
                 <div id='retry' >
             
-                <input type="image" src='../Images/continue.png' name="sit">
+                <input type="image" src='../Images/continue.webp' name="sit">
                     </div>
                 </form>
         </div>
 
         
-        <img id="playground" src="../Images/Endhintergrund.png"/>
-        <img id="playground2" src="../Images/Endhintergrund.png"/>
+        <img id="playground" src="../Images/Endhintergrund.webp"/>
+        <img id="playground2" src="../Images/Endhintergrund.webp"/>
         
-        <img id="bottom" src="../Images/Boden.png"/>
-        <img id="bottom2" src="../Images/Boden.png"/>
+        <img id="bottom" src="../Images/Boden.webp"/>
+        <img id="bottom2" src="../Images/Boden.webp"/>
         
-        <img id="hind1" src="../Images/blumen.png" />
-        <img id="hind2" src="../Images/lollis.png" />
-        <img id="hind3" src="../Images/lava.png" />
-        <img id="hind4" src="../Images/wasser.png" />
-        <img id="hind5" src="../Images/blumen.png" />
+        <img id="hind1" src="../Images/blumen.webp" />
+        <img id="hind2" src="../Images/lollis.webp" />
+        <img id="hind3" src="../Images/lava.webp" />
+        <img id="hind4" src="../Images/wasser.webp" />
+        <img id="hind5" src="../Images/blumen.webp" />
         
-        <img id="player" src="../Images/sprung2.png" style="display:none"/>
+        <img id="player" src="../Images/sprung2.webp" style="display:none"/>
         
-        <img class="ein" src="../Images/lauf1.png" style="display:block"/>
-        <img class="ein" id="hilf" src="../Images/lauf3.png" style="display:none"/>
+        <img class="ein" src="../Images/lauf1.webp" style="display:block"/>
+        <img class="ein" id="hilf" src="../Images/lauf3.webp" style="display:none"/>
 
         
         <embed src="../Audio/Musik.mp3" loop="true" autostart="true" hidden="true" width="0" height="0"/>

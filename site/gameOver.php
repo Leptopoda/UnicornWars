@@ -22,7 +22,7 @@
         <form action="" method="post">
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/name.png" alt="name_schrift">
+					<img class="item" src="../Images/name.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldname' type="text" name="Username" maxlength='15' placeholder="Bitte Name Eintragen"/>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/score.png" alt="score_schrift">
+					<img class="item" src="../Images/score.webp" alt="score_schrift">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldscore' readonly="readonly" type="text" name="score" value="<?php echo $score; ?>" />
@@ -38,10 +38,10 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button id='buttoneintragen' type="submit" style="display:<?php echo$visible?>" name="submit"><img src="../Images/abschicken.png"></button>
+					<button id='buttoneintragen' type="submit" style="display:<?php echo$visible?>" name="submit"><img src="../Images/abschicken.webp"></button>
 				</div>
 				<div class="item">
-					<a href="../site/scoreboard.php"><img src="../Images/scoreboard.png" alt="continue_schrift"></a>
+					<a href="../site/scoreboard.php"><img src="../Images/scoreboard.webp" alt="continue_schrift"></a>
 				</div>
 			</div>
             

@@ -17,7 +17,7 @@
             }
         </script>
         
-        <a href="../site/game.php"><img id="button" src='../Images/button.png'></a>
+        <a href="../site/game.php"><img id="button" src='../Images/button.webp'></a>
         <embed src='../Audio/Intro.mp3' loop='true' autostart='true' hidden='true' width='0' height='0'>
         <audio preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="../Audio/Intro.mp3" type="audio/mpeg"></audio>    
         

@@ -12,8 +12,8 @@
         <font color="white">
         
         <div class="center">
-            <img src='./Images/Logo.png'/>
-            <a href="./site/intro.php"><img src="./Images/button.png"></a>
+            <img src='./Images/Logo.webp'/>
+            <a href="./site/intro.php"><img src="./Images/button.webp"></a>
         </div>
     </body>
     

@@ -5,7 +5,7 @@
 
 
 body{
-	background-image: url("../Images/background.png");
+	background-image: url("../Images/background.webp");
 	background-size:100% 100%;
 	color:#ff33ee;
 	font-weight:bold;
@@ -40,7 +40,7 @@ input {
 
 
 #gameoverscreen {
-	background-image:url('../Images/background.png');
+	background-image:url('../Images/background.webp');
 	z-index:2;
 	position:absolute;
 	width:100%;
@@ -251,7 +251,7 @@ p{
 
 
 #scoreet{
-	background-image:url('../Images/score.png');
+	background-image:url('../Images/score.webp');
 	width:400px;
 height:143px;
 float:right;
@@ -259,7 +259,7 @@ float:right;
 
 
 #einet{
-	background-image:url('../Images/abschicken.png');
+	background-image:url('../Images/abschicken.webp');
 width:648px;
 height:143px;
  margin-left: auto;
