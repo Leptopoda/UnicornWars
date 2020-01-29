@@ -1,11 +1,16 @@
-<?php    
-	function writeDB($pDB, $querry){
-		if ($pDB->query($querry) === TRUE) {
-			echo "Querry successfully";
-			header('Location: ../site/scoreboard.php');
-		} else {
-			echo "Error: " . $querry . "<br>" . $pDB->error;
+<?php
+	function queryDB($query){
+		$conDB = connectDB();
+
+		$ergebnis = $conDB->query($query);
+		if($ergebnis->num_rows > 0){
+			return($ergebnis);
+			echo "Query successfully";
+		}else{
+			echo "Error: " . $query . "<br>" . $conDB->error;
 		}
+		
+		$conDB->close();
 	}
 
 	function connectDB(){
@@ -18,18 +23,7 @@
 			return $db;
 		}
 	}
-	
-	
-	function queryDB($conDB, $querry){
-		$ergebnis = $conDB->query($querry);
 
-		if($ergebnis->num_rows > 0){
-			return($ergebnis);
-		}else{
-			alert("DB Leer");
-		}
-		$conDB->close();
-    }
 
 	function alert($message) {
 		echo "<script type='text/javascript'>alert('$message');</script>";

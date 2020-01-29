@@ -58,9 +58,9 @@
 				if(empty($Username)){
 					alert("Bitte Namen eintragen");
 				}else{
-					$connection = connectDB();
 					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$Username', '$score')";
-					writeDB($connection, $sql);
+					queryDB($sql);
+					header('Location: ../site/scoreboard.php');
 				}
 			}
         ?>
