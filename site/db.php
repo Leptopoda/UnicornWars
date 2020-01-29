@@ -4,7 +4,7 @@
 		$absenden->bind_param('ss', $pUname, $pScore);
 		$absenden->execute();
 		$pDB->close();
-		header('Location: /3/site/scoreboard.php');
+		header('Location: ../site/scoreboard.php');
 	}
 
 	function connectDB(){
