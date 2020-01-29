@@ -25,8 +25,7 @@
 			include_once 'db.php';
             
 			$sql = "SELECT * FROM scoreboard ORDER BY score desc";
-            $ergebnis = queryDB($sql, 1);
-			ausgabe($ergebnis);
+			ausgabe(queryDB($sql));
 			
             function ausgabe($daten){
                 echo "<table><tr></tr>";

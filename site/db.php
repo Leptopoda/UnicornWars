@@ -1,5 +1,5 @@
 <?php
-	function queryDB($query, $case){
+	function queryDB($query){
 		$conDB = connectDB();
 
 		$ergebnis = $conDB->query($query);

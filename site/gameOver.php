@@ -59,7 +59,7 @@
 					alert("Bitte Namen eintragen");
 				}else{
 					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$Username', '$score')";
-					queryDB($sql, 0);
+					queryDB($sql);
 					header('Location: ../site/scoreboard.php');
 				}
 			}
