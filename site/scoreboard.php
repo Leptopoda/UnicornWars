@@ -24,9 +24,8 @@
         <?php
 			include_once 'db.php';
             
-            $con = connectDB();
 			$sql = "SELECT * FROM scoreboard ORDER BY score desc";
-            $ergebnis = queryDB($con, $sql);
+            $ergebnis = queryDB($sql, 1);
 			ausgabe($ergebnis);
 			
             function ausgabe($daten){
