@@ -1,7 +1,7 @@
 <?php    
 	function writeDB($pDB, $querry){
 		if ($pDB->query($querry) === TRUE) {
-			echo "New record created successfully";
+			echo "Querry successfully";
 			header('Location: ../site/scoreboard.php');
 		} else {
 			echo "Error: " . $querry . "<br>" . $pDB->error;
@@ -18,6 +18,7 @@
 			return $db;
 		}
 	}
+	
 	
 	function queryDB($conDB, $querry){
 		$ergebnis = $conDB->query($querry);
