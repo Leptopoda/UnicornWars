@@ -1,6 +1,6 @@
 <?php    
 	function writeDB($pDB, $pUname, $pScore){
-		$absenden = $pDB -> prepare("INSERT INTO scoreboard_daten (Name,Punkte) VALUES(?,?)");
+		$absenden = $pDB -> prepare("INSERT INTO scoreboard (name,score) VALUES(?,?)");
 		$absenden->bind_param('ss', $pUname, $pScore);
 		$absenden->execute();
 		$pDB->close();
@@ -8,8 +8,8 @@
 	}
 
 	function connectDB(){
-		//$db = new mysqli('rimikis.de', 'UnicornWars','6YexQCE224idrSvn','UnicornWars',3306);
-		$db = new mysqli('localhost', 'admin','admin','scoreboard');
+		$db = new mysqli('localhost', 'UnicornWars','QYE8qtv5R8aMV6Rf','unicornwars');
+		//$db = new mysqli('localhost', 'admin','admin','scoreboard');
 
 		if(!$db):
 			alert("Keine verbindung zur DB");
