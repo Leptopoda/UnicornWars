@@ -1,21 +1,22 @@
 <?php    
-	function writeDB($pDB, $pUname, $pScore){
-		$absenden = $pDB -> prepare("INSERT INTO scoreboard (name,score) VALUES(?,?)");
-		$absenden->bind_param('ss', $pUname, $pScore);
-		$absenden->execute();
-		$pDB->close();
-		header('Location: ../site/scoreboard.php');
+	function writeDB($pDB, $querry){
+		if ($pDB->query($querry) === TRUE) {
+			echo "New record created successfully";
+			header('Location: ../site/scoreboard.php');
+		} else {
+			echo "Error: " . $querry . "<br>" . $pDB->error;
+		}
 	}
 
 	function connectDB(){
-		$db = new mysqli('localhost', 'UnicornWars','QYE8qtv5R8aMV6Rf','unicornwars');
 		//$db = new mysqli('localhost', 'admin','admin','scoreboard');
+		$db = new mysqli('localhost', 'UnicornWars','QYE8qtv5R8aMV6Rf','unicornwars');
 
-		if(!$db):
-			alert("Keine verbindung zur DB");
-		endif;
-		
-		return $db;
+		if ($db->connect_error) {
+			die("Connection failed: " . $db->connect_error);
+		} else {
+			return $db;
+		}
 	}
 	
 	function queryDB($conDB, $querry){
