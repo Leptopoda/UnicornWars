@@ -11,11 +11,11 @@
     <body onload=startTimer();>
     
         <script>
-            /*function startTimer(){
+            function startTimer(){
                 setTimeout(function() {
                     window.open ('Game.php','_self',false)
                 },60000);
-            }*/
+            }
         </script>
         
         <a href="../site/game.php"><img id="button" src='../Images/button.webp'></a>

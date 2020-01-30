@@ -39,61 +39,19 @@ input {
 	text-align:right;
 }
 
-
-
-
-
-
-
-
-
-
-
-/*unicron.css */
-
-
-
-
-
-
-
-#divname{
-	float:right;
-	
-}
-
-
-
-
-
-#scoreet{
-	background-image:url('../Images/score.webp');
-	width:400px;
-height:143px;
-float:right;
-}
-
-
-#einet{
-	background-image:url('../Images/abschicken.webp');
-width:648px;
-height:143px;
- margin-left: auto;
-  margin-right: auto;
-}
-
-#e1{
-
-margin: 25px 50px 75px;
-width:150px;
-height:50px;
-
-}
-
-
 td{
 	font-size:5em;
 	color:#fb1bcd;
 }
+
+
+
+
+
+
+
+
+
+
 
 
