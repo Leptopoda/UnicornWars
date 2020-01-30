@@ -1,19 +1,18 @@
 window.onload = hindst; //aufrufen der startfunktion "hindst" (main)
 
-var laufIn =""; //ID für das LaufenIntervall
-var stoppuhrIn = ""; //ID für das StoppuhrIntervall
-var sprung = false;
+var intervals = new Array(); //Array, welches alle intervale speichert, sodass sie später wieder gelöscht werden können
 var life = 0;
 var eventon = true; //dient als lock um nicht zu springen, wenn man springt
 var dist = 80; //@2DO integrate with score
 var hindid = ["hind1","hind2","hind3","hind4","hind5"]; //IDs der bilddateien
 var bottomid = ["bottom","bottom2"];
 var playgroundid = ["playground", "playground2"];
+var sprung = false;
 
 var cheatEnabled = 0;
 
-$(document).ready(function () {
-$(window).on("keydown",function(evt){   
+$(document).ready(function(){
+$(window).on("keydown",function(evt){
     
     var oImage = null;
     oImage = $("#player"); //reference to Image
@@ -22,16 +21,15 @@ $(window).on("keydown",function(evt){
     
     switch(evt.keyCode) { //wenn eine Taste gedrückt wird
         case 32: //leertaste
-            if (eventon) {
+            if (eventon) { //@2Do let playerup return a value so we wouldn't need the eventon lock
                 eventon = false; //sperren, des springen, da bereits in sprung
                 document.getElementById("horse").muted = true; //galopp sound stumm stellen
                 document.getElementById("player").src = "../Images/sprung1.webp";
-                clearInterval(laufIn);
-                $(".ein").css({"display":"none"});
+                clearInterval(intervals[5]);
+                $(".lauf").css({"display":"none"});
                 $("#player").css({"display":"block"});
                 var win = document.body.clientWidth;
                 document.getElementById("player").style.top = ("550px");
-                sprung=true;
                 playerup();
             }
             break;
@@ -40,9 +38,8 @@ $(window).on("keydown",function(evt){
             break;
         // s saves
         // r reloads
-        case 83: //s taste
-            life=10;
-            lifeCheck();
+        case 83: //s taste (suicide)
+            dead();
             break;
         case 52: //Was passiert denn hier??
             cheatEnabled = 0.5;
@@ -64,29 +61,22 @@ $(window).on("keydown",function(evt){
 });
 
 
-function playerup () { //animiert den sprung //@toDo ggf über bilder in einer klasse lösen vgl. lauf()
-    $( "#player" ).animate({
-        top:"350px"
-        },
-        700,
-        "swing",
-        function(){
+function playerup(){ //animiert den sprung //@toDo ggf über bilder in einer klasse lösen vgl. lauf()
+	sprung = true;
+	$( "#player" ).animate({top:"350px"},700,"swing",
+		function(){
             document.getElementById("player").src = "../Images/sprung2.webp";
-            setTimeout(function() { 
+            setTimeout(function(){
                 document.getElementById("player").src = "../Images/sprung3.webp",
-                $( "#player" ).animate({
-                    top:"550px"
-                    },
-                    700,
-                    "swing",
+                $( "#player" ).animate({top:"550px"},700,"swing",
                     function() {
-                      document.getElementById("player").src = "../Images/sprung2.webp";
-                      sprung = false;
-                      $("#hilf").css({"display":"block"});
-                      $("#player").css({"display":"none"});
-                      eventon = true;
-                      document.getElementById("horse").muted = false;
-                      lauf();
+						document.getElementById("player").src = "../Images/sprung2.webp";
+						sprung = false;
+						$("#hilf").css({"display":"block"});
+						$("#player").css({"display":"none"});
+						eventon = true;
+						document.getElementById("horse").muted = false;
+						lauf();
                     }
                 ) 
             }, 200);
@@ -95,9 +85,11 @@ function playerup () { //animiert den sprung //@toDo ggf über bilder in einer k
 };
 
 function hindst() { //eher wie ein constructor daher auch der name hindernisSet (inzwischen nicht mehr)
-    for(i = 0; i < hindid.length; i++){
-        document.getElementById(hindid[i]).style.right = "-100px";
-    }
+    
+	hindid.forEach(function(currentValue, index){
+		document.getElementById(currentValue).style.right = "-100px";
+		intervals[0] = setInterval(startIntervall,200,index); //ruft startIntervall periodisch auf
+	});
     
     document.getElementById(playgroundid[0]).style.left = "0px";
     document.getElementById(playgroundid[1]).style.left = "3409px";
@@ -105,51 +97,47 @@ function hindst() { //eher wie ein constructor daher auch der name hindernisSet 
     document.getElementById(bottomid[0]).style.left = "0px";
     document.getElementById(bottomid[1]).style.left = "2480px";
 
-    setInterval(background, 75); //ruft background periodisch auf
+    intervals[1] = setInterval(background, 75); //ruft background periodisch auf
 
-    for(var i = 0;  i < hindid.length; i++){ //für jedes hindernis
-        setInterval(startIntervall,200,i); //ruft startIntervall periodisch auf
-    }
-
-    setInterval(lebenzahl, 25); //ruft lebenszahl() periodisch auf
+    intervals[2] = setInterval(lebenzahl, 25); //ruft lebenszahl() periodisch auf
     
-    stoppuhrIn = setInterval(stoppuhr, 25); //ruft stopuhr() periodisch auf (über stoppuhrIn kann diese wieder gestoppt werden)
+    intervals[3] = setInterval(stoppuhr, 25); //ruft stopuhr() periodisch auf (über stoppuhrIn kann diese wieder gestoppt werden)
 
     lauf();
 
-    setInterval(hind, 15); //ruft hind() periodisch auf
+    intervals[4] = setInterval(hind, 15); //ruft hind() periodisch auf
 }
     
 function hind() {//erzeugt zufällig neue Hindernisse
-    var x = Math.round(Math.random() * (10)) + 1; //zuffalszahl
-    if (x <= hindid.length && dist >= 80) { //verhindern, dass Hindernisse zu nah aufeinander folgen
-        x = "hind" + x; 
+    var x = Math.round(Math.random() * (8)) + 1; //zuffalszahl
+    if (x <= hindid.length && dist >= 70) { //verhindern, dass Hindernisse zu nah aufeinander folgen
+        x = hindid[x];
         dist = 0;
         if (document.getElementById(x).style.right == "-100px") {
             document.getElementById(x).style.right = "-90px";
         }
     }
 
-    var hindright = [null,null,null,null,null];
+    var hindright = new Array();
     var fensterweite = parseInt(window.document.body.clientWidth) + 100 ;
     
-    for (var i = 0; i < hindid.length; i++) {
-        hindright[i] = document.getElementById(hindid[i]).style.right;
-        hindright[i] = hindright[i].substr(0,(hindright[i]).length -2);
-        hindright[i] = parseInt(hindright[i]);
+	hindid.forEach(function(currentValue, index){
+		hindright[index] = document.getElementById(currentValue).style.right;
+        hindright[index] = hindright[index].substr(0,(hindright[index]).length -2);
+        hindright[index] = parseInt(hindright[index]);
         
-        if (hindright[i] > -100) {
-            document.getElementById(hindid[i]).style.right = hindright[i] + 5 + "px";
+        if (hindright[index] > -100) {
+            document.getElementById(currentValue).style.right = hindright[index] + 5 + "px";
         }
-        if (hindright[i] >= fensterweite){
-            document.getElementById(hindid[i]).style.right = "-100px"
+        if (hindright[index] >= fensterweite){
+            document.getElementById(currentValue).style.right = "-100px"
         }
-    }
+	});
 
     dist++;
     
-    for (var i = 0; i < bottomid.length; i++){
-        var posit1 = document.getElementById(bottomid[i]).style.left;
+    bottomid.forEach(function(currentValue){
+        var posit1 = document.getElementById(currentValue).style.left;
         posit1 = posit1.substr(0,posit1.length -2);
         posit1 = parseInt(posit1);
         
@@ -158,8 +146,8 @@ function hind() {//erzeugt zufällig neue Hindernisse
         }else{
             posit1 = posit1 - 5;
         }   
-        document.getElementById(bottomid[i]).style.left = posit1 + "px";
-    }
+        document.getElementById(currentValue).style.left = posit1 + "px";
+    });
 }
 
 //crash
@@ -178,7 +166,9 @@ function collision (pH,pE){ //kollisionsdetektion für alle vier Ecken
         life++; 
     }}}}
     
-    lifeCheck(); //überprüfen ob schon tot
+    if (life==10){ //überprüfen ob schon tot
+        dead();
+    }
     
     function checkIntervall(IntervallStart, IntervallEnde, Punkt){ //eigentliche kolliionsdetection
         return IntervallStart <= Punkt && IntervallEnde >= Punkt;
@@ -186,11 +176,11 @@ function collision (pH,pE){ //kollisionsdetektion für alle vier Ecken
 }
 
 
-var E = [{},{},{},{},{}];
-var H = [{},{},{},{},{}];
-var posHx = [0,0,0,0,0];
-var fensterweite = [0,0,0,0,0];
-var xh = ["","","","",""];
+var E = null; //aktuelleposition des einhorns //@2Do make einhorn one time and change in sprung()
+var H = null; //aktuelle Position des hindernisses
+var posHx = new Array();
+var fensterweite = new Array(); //displaygröße
+var xh = new Array();
 
 function startIntervall(i){//bewegt die hindernisse und berechnet die Position ihrer Ecken um eine kollisionsdetektions durchzuführen
     xh[i] = document.getElementById(hindid[i]).style.right; //Koordinaten Hindernis[i]
@@ -198,64 +188,65 @@ function startIntervall(i){//bewegt die hindernisse und berechnet die Position i
     xh[i] = parseInt(xh[i]);
     fensterweite[i] = document.body.clientWidth; //innerhalb des intervalls, falls das fenster on the fly resized wird
     fensterweite[i] = parseInt(fensterweite);
-    posHx[i] = fensterweite[i] - xh[i] - 100; 
+    posHx[i] = fensterweite[i] - xh[i] - 100;
 
-    if(sprung){
-        E[i] = { Ecke1: { x: 50, y: 450} ,
+	if(sprung){
+        E = { Ecke1: { x: 50, y: 450},
               Ecke2: { x: 150, y: 450},
               Ecke3: { x: 150, y :550 },
               Ecke4: { x: 50, y: 550}
             }
     }else{
-         E[i] = { Ecke1: { x: 50, y: 650} ,
+         E = { Ecke1: { x: 50, y: 650},
                Ecke2: { x: 150, y: 650},
                Ecke3: { x: 150, y :750 },
                Ecke4: { x: 50, y: 750}
-        }
+			}
     }
 
-    H[i] = { Ecke1: { x: posHx[i], y: 650} ,
+    H = { Ecke1: { x: posHx[i], y: 650} ,
           Ecke2: { x: xh[i], y: 650},
           Ecke3: { x: xh[i], y :750},
           Ecke4: { x: posHx[i], y: 750}
-    }
+		}
 
-    if(!(posHx[i]<=0 || xh[i] <=0)){ //wenn das hindernis NICHT hinter dem einhorn oder auserhalb des bildschirms ist
-        collision(H[i], E[i]); //sonst kollision prüfen
+    if(!(posHx[i]<=0 || xh[i] <=0)){ //wenn das hindernis NICHT hinter dem einhorn oder außerhalb des bildschirms ist
+        collision(H, E); //sonst kollision prüfen
     }
 }
 
-
-function lifeCheck(){ //überprüft den tot und geht zum gameoverscreen über
-    if (life==10){
-        console.log("tot"); //der Tod wird auf die Webconsole ausgegeben
-        life = 0; //life wird wieder auf null gesetzt, da browser den zustand der variablen von javascript zwischenspeichert
-        document.getElementById("scli").style.visibility = "hidden";
-        document.getElementById("gameoverscreen").style.visibility = "visible";
-        clearInterval(stoppuhrIn);
-        document.getElementById("scoredisplay").value = document.besuch.dauer.value;
-    }
+function dead(){ //funktion welcheaufgerufen wird, wenn der spieler stirbt. Sie cleard alle intervalle
+	//console.log("tot"); //der Tod wird auf die Webconsole ausgegeben
+	life = 0; //life wird wieder auf null gesetzt, da browser den zustand der variablen von javascript zwischenspeichert
+	
+	intervals.forEach(function(currentValue){
+		clearInterval(currentValue);
+	});
+	
+	document.getElementById("scoredisplay").value = document.besuch.dauer.value;
+	document.getElementById("game").style.visibility = "hidden";
+	document.getElementById("gameoverscreen").style.visibility = "visible";
 }
 
 function lauf(){ //delay artige funktion
-    laufIn = setInterval(function(){
-        $( ".ein").toggle(); //wächselt zwischen den beiden bildern, welche in der classe ein (html) hinterlegt sind (lauf1 und lauf2)
+    intervals[5] = setInterval(function(){
+        $( ".lauf").toggle(); //wächselt zwischen den beiden bildern, welche in der classe ein (html) hinterlegt sind (lauf1 und lauf2)
     }, 200);
 }
 
-function background(){ //bewegt den Hintergrund, um eine bewegung vorzutäuschen
-    for(var i = 0; i < playgroundid.length; i++){
-        var pos1 = document.getElementById(playgroundid[i]).style.left;
-        pos1 = pos1.substr(0,pos1.length -2);
-        pos1 = parseInt(pos1);
-        
-        if(pos1 == -3409){ //wenn das bild auserhalb des bildschirmes ist wird es wieder auf die andere seite drangehängt
-            pos1 = 3408;
-        }else{
-            pos1 = pos1 - 1; //sonst wird es um eins weiter bewegt
-        }
-        document.getElementById(playgroundid[i]).style.left = pos1 + "px";
-    }
+function background(){
+	playgroundid.forEach(function(currentValue){ //bewegt den Hintergrund, um eine bewegung vorzutäuschen
+		var pos1 = document.getElementById(currentValue).style.left;
+		pos1 = pos1.substr(0,pos1.length -2);
+		pos1 = parseInt(pos1);
+		
+		if(pos1 == -3409){ //wenn das bild auserhalb des bildschirmes ist wird es wieder auf die andere seite drangehängt
+			pos1 = 3408;
+		}else{
+			pos1 = pos1 - 1; //sonst wird es um eins weiter bewegt
+		}
+		document.getElementById(currentValue).style.left = pos1 + "px";
+	});
 }
 
 start = new Date();
@@ -264,9 +255,9 @@ startzeit = start.getTime();
 function pause(){ //pause wird gemacht und der entstehende fehler wird korrigiert
     var aktuell = new Date();
     var correction = aktuell.getTime();
-    
+    document.getElementById("music").muted = true; //mute music
     alert("PAUSE");
-    
+    document.getElementById("music").muted = false; //reenablemusic
     aktuell = new Date();
     startzeit = startzeit + (aktuell.getTime() - correction);
 }
