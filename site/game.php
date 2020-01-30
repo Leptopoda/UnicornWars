@@ -3,7 +3,8 @@
 <html>
     <head>
         <title>GAME</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/neu.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+		<link rel="stylesheet" type="text/css" href="../Styles/game.css">
 	<script src="../scripts/jquery-3.4.1.min.js"></script>
         <script src="../scripts/Game.js"></script>
     </head>

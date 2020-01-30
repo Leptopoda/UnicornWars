@@ -1,0 +1,47 @@
+#button{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    bottom: 0;
+}
+
+#intro{
+	position: absolute;
+	width: 22em;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+	margin-left: -9em;
+	font-size: 350%;
+	font-weight: bold;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(200px) rotateX(20deg);
+}
+
+#intro:after{
+	position: absolute;
+	content: ' ';
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 60%;
+	background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	pointer-events: none;
+}
+
+
+#introcontent{
+	position: absolute;
+	top: 100%;
+	animation: scroll 80s linear 4s infinite;
+}
+
+@keyframes scroll{
+	0% { top: 100%; }
+	100% { top: -170%; }
+}

@@ -1,0 +1,99 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-image: url("../Images/background.webp");
+	background-size:100% 100%;
+	color:#ff33ee;
+	font-weight:bold;
+	font-family:Calibri;
+	text-align: justify;
+}
+
+.center{
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+p{
+	text-align:justify;
+}
+
+
+
+form{
+	color:#ff33ee;
+	font-size: 20pt;
+	text-align:right;
+}
+
+
+input {
+	border: 0px;
+	font-size: 30pt;
+	background-color:transparent;
+	color:#ff33ee;
+	/*color:#fb1bcd;*/
+	text-align:right;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*unicron.css */
+
+
+
+
+
+
+
+#divname{
+	float:right;
+	
+}
+
+
+
+
+
+#scoreet{
+	background-image:url('../Images/score.webp');
+	width:400px;
+height:143px;
+float:right;
+}
+
+
+#einet{
+	background-image:url('../Images/abschicken.webp');
+width:648px;
+height:143px;
+ margin-left: auto;
+  margin-right: auto;
+}
+
+#e1{
+
+margin: 25px 50px 75px;
+width:150px;
+height:50px;
+
+}
+
+
+td{
+	font-size:5em;
+	color:#fb1bcd;
+}
+
+
