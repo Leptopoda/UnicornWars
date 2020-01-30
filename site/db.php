@@ -1,35 +1,26 @@
-<?php    
-	function writeDB($pDB, $pUname, $pScore){
-		$absenden = $pDB -> prepare("INSERT INTO scoreboard_daten (Name,Punkte) VALUES(?,?)");
-		$absenden->bind_param('ss', $pUname, $pScore);
-		$absenden->execute();
-		$pDB->close();
-		header('Location: ../site/scoreboard.php');
+<?php
+	function queryDB($query){
+		$conDB = connectDB();
+
+		$ergebnis = $conDB->query($query);
+		if($ergebnis->num_rows > 0){
+			return($ergebnis);
+			echo "Query successfully";
+		}else{
+			echo "Error: " . $query . "<br>" . $conDB->error;
+		}
+		
+		$conDB->close();
 	}
 
 	function connectDB(){
-		//$db = new mysqli('rimikis.de', 'UnicornWars','6YexQCE224idrSvn','UnicornWars',3306);
-		$db = new mysqli('localhost', 'admin','admin','scoreboard');
+		//$db = new mysqli('localhost', 'admin','admin','scoreboard');
+		$db = new mysqli('localhost', 'UnicornWars','QYE8qtv5R8aMV6Rf','unicornwars');
 
-		if(!$db):
-			alert("Keine verbindung zur DB");
-		endif;
-		
-		return $db;
-	}
-	
-	function queryDB($conDB, $querry){
-		$ergebnis = $conDB->query($querry);
-
-		if($ergebnis->num_rows > 0){
-			return($ergebnis);
-		}else{
-			alert("DB Leer");
+		if ($db->connect_error) {
+			die("Connection failed: " . $db->connect_error);
+		} else {
+			return $db;
 		}
-		$conDB->close();
-    }
-
-	function alert($message) {
-		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 ?>

@@ -10,13 +10,13 @@
         <?php
 			include_once 'db.php';
             @$score = $_POST['dauer'];
-            
-            if(empty($score)):
+				
+            if(empty($score)){
 				$visible = "none";
                 $score = "Bitte erst spielen";
-            else:
-                $visible = "visible";
-            endif;
+            } else {
+				$visible = "visible";
+            }
         ?>
 		
         <form action="" method="post">
@@ -38,31 +38,31 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button id='buttoneintragen' type="submit" style="display:<?php echo$visible?>" name="submit"><img src="../Images/abschicken.webp"></button>
+					<button id='buttoneintragen' type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/abschicken.webp"></button>
 				</div>
 				<div class="item">
 					<a href="../site/scoreboard.php"><img src="../Images/scoreboard.webp" alt="continue_schrift"></a>
 				</div>
-			</div>
-            
+			</div>   
         </form>
 
-        <?php    
-        if(isset($_POST['submit'])):
-            onClick();
-        endif;
-            
-        function onClick(){            
-            $Username = $_POST['Username'];
-            $score = $_POST['score'];
-            
-            if(empty($Username)){
-				alert("Bitte Namen eintragen");
-			}else{
-                $connection = connectDB();
-                writeDB($connection, $Username, $score);    
-            }
-        }
+        <?php
+			if(isset($_POST['submit'])){
+				onClick();
+			}
+
+			function onClick(){
+				$Username = $_POST['Username'];
+				$score = $_POST['score'];
+				
+				if(empty($Username)){
+					echo"Bitte Namen eintragen";
+				}else{
+					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$Username', '$score')";
+					queryDB($sql);
+					header('Location: ../site/scoreboard.php');
+				}
+			}
         ?>
     </body>
 </html>

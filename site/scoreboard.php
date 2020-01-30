@@ -24,18 +24,16 @@
         <?php
 			include_once 'db.php';
             
-            $con = connectDB();
-			$sql = "SELECT * FROM scoreboard_daten ORDER BY Punkte desc";
-            $ergebnis = queryDB($con, $sql);
-			ausgabe($ergebnis);
+			$sql = "SELECT * FROM scoreboard ORDER BY score desc";
+			ausgabe(queryDB($sql));
 			
             function ausgabe($daten){
                 echo "<table><tr></tr>";
                 for ($i = 1; $row=$daten->fetch_assoc(); $i++){
                     echo "<tr>";
                     echo "<td>" . $i . "<a></a>" ."</td>";
-                    echo "<td>" . $row['Name'] . "</td>";
-                    echo "<td>" . $row['Punkte'] . "</td>";
+                    echo "<td>" . $row['name'] . "</td>";
+                    echo "<td>" . $row['score'] . "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
