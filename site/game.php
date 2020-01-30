@@ -3,26 +3,30 @@
 <html>
     <head>
         <title>GAME</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/neu.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+		<link rel="stylesheet" type="text/css" href="../Styles/game.css">
 	<script src="../scripts/jquery-3.4.1.min.js"></script>
         <script src="../scripts/Game.js"></script>
     </head>
 
     <body>
-        <div id='gameoverscreen'>
-            <div id='gameover'>
-                <img src='../Images/gameover.webp'/>
-            </div>
-            <div id="sw">
-                <form action="../site/gameOver.php" method="post">
-                    <input id="scoredisplay" type="text" name="dauer" readonly="readonly"/>
-					
-					<div id='retry' >
-						<input type="image" src='../Images/continue.webp' name="sit">
-                    </div>
-                </form>
+        
+		<div class="container" id='gameoverscreen'>
+			<div class="item">
+				<img class="item" src='../Images/gameover.webp'/>
 			</div>
-        </div>
+			
+			<form action="../site/gameOver.php" method="post">
+				<div class="item">
+					<input class="item" id="scoredisplay" type="text" name="dauer" readonly="readonly"/>
+				</div>
+
+				<div class="item">
+					<input class="item" type="image" src='../Images/continue.webp' name="sit">
+				</div>
+			</form>
+		</div>
+        
 
         <div id="game">
 			<div id="scli">
