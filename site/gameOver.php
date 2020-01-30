@@ -10,13 +10,13 @@
         <?php
 			include_once 'db.php';
             @$score = $_POST['dauer'];
-            
-            if(empty($score)):
+				
+            if(empty($score)){
 				$visible = "none";
                 $score = "Bitte erst spielen";
-            else:
-                $visible = "visible";
-            endif;
+            } else {
+				$visible = "visible";
+            }
         ?>
 		
         <form action="" method="post">
@@ -47,16 +47,16 @@
         </form>
 
         <?php
-			if(isset($_POST['submit'])):
+			if(isset($_POST['submit'])){
 				onClick();
-			endif;
+			}
 
 			function onClick(){
 				$Username = $_POST['Username'];
 				$score = $_POST['score'];
 				
 				if(empty($Username)){
-					alert("Bitte Namen eintragen");
+					echo"Bitte Namen eintragen";
 				}else{
 					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$Username', '$score')";
 					queryDB($sql);
