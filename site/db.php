@@ -1,16 +1,10 @@
 <?php
 	function queryDB($query){
 		$conDB = connectDB();
-
-		$ergebnis = $conDB->query($query);
-		if($ergebnis->num_rows > 0){
-			return($ergebnis);
-			echo "Query successfully";
-		}else{
-			echo "Error: " . $query . "<br>" . $conDB->error;
-		}
-		
+		$result = $conDB->query($query);
+		//echo "Query successfull";
 		$conDB->close();
+		return($result);
 	}
 
 	function connectDB(){
