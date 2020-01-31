@@ -45,8 +45,8 @@
 				if(empty($email)){ //is email set??
 					echo"Bitte Email eintragen";
 				}else{
-					if (empty($password)){ //do we have a password
-						echo"Bitte username eintragen";
+					if (empty($_POST['password'])){ //do we have a password
+						echo"Bitte passwort eintragen";
 					}else{
 						
 						$sql = "SELECT password FROM users WHERE email='$email';";
