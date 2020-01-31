@@ -5,7 +5,7 @@
 	queryDB($sql);
 	echo "Tabelle scoreboeard Erstellt";
 	
-	$sql = "CREATE TABLE `unicornwars`.`users` ( `email` VARCHAR(60) NOT NULL , `username` VARCHAR(15) NOT NULL , `password` TINYTEXT NOT NULL , `admin` BOOLEAN NOT NULL DEFAULT FALSE , `signup` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , UNIQUE (`username`(15))) ENGINE = InnoDB; ";
+	$sql = "CREATE TABLE `unicornwars`.`users` ( `email` VARCHAR(60) NOT NULL , `username` VARCHAR(15) NOT NULL , `password` TINYTEXT NOT NULL , `admin` BOOLEAN NOT NULL DEFAULT FALSE , `signup` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `lastlogin` DATETIME NOT NULL, UNIQUE (`username`(15))) ENGINE = InnoDB; ";
 	queryDB($sql);
 	echo "Tabelle user Erstellt";
 ?>
