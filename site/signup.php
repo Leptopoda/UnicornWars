@@ -4,7 +4,6 @@
     <head>
         <title>sign up</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
-		<link rel="stylesheet" type="text/css" href="../Styles/gameOver.css">
 		<?php
 			include_once 'db.php';
 				

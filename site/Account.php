@@ -4,7 +4,7 @@
     <head>
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
-		<link rel="stylesheet" type="text/css" href="../Styles/gameOver.css">
+		<link rel="stylesheet" type="text/css" href="../Styles/account.css">
 		<?php
 			include_once 'db.php';
 			
@@ -19,14 +19,12 @@
 
     <body>
 		<div class="container">
-			<div class="item">
+			<!--<div class="item">
 				<img class="item" src="../Images/Username.webp" alt="name_schrift">
-			</div>
+			</div>-->
 			
 			<form action="" method="post">
-				<div class='item'>
-					<button type="submit" class="item"  id="logout" name="logout"><img src='../Images/button.webp'></button>
-				</div>
+				<button type="submit" class="item"  id="logout" name="logout"><img src='../Images/button.webp'></button>
 			</form>
 			
 		</div>
