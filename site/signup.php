@@ -61,12 +61,29 @@
 						if (empty($password)){ //do we have a password
 							echo"Bitte username eintragen";
 						}else{
-							$sql = "INSERT INTO users (email, username, password) 
+							//$sql = "SELECT IF((NOT EXISTS(SELECT username FROM users WHERE email='rimikis.nikolas@gmail.com')),true,false)";
+							/*$sql = "INSERT INTO users (email, username, password) 
 								SELECT '$email','$username','$password' FROM DUAL
 								WHERE NOT EXISTS 
-								  (SELECT username FROM users WHERE email='$email');";	
-
-							echo(queryDB($sql));
+								  (SELECT username FROM users WHERE email='$email');";*/
+							
+							$sql = "SELECT username FROM users WHERE email='$email';";
+							
+							$result = queryDB($sql);
+							if ($result->num_rows > 0) {// output data of each row
+								while($row = $result->fetch_assoc()) {
+									echo("User already exist with username: ");
+									echo($row['username']);
+								}
+							} else {
+								$sql = "INSERT INTO users (email, username, password) VALUES ('$email','$username','$password');";
+								queryDB($sql);
+								echo("User was created");
+							}
+							
+							
+							
+							
 							//header('Location: ../site/scoreboard.php');
 							
 						}

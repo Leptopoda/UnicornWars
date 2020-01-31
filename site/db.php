@@ -1,16 +1,10 @@
 <?php
 	function queryDB($query){
 		$conDB = connectDB();
-		
-		if ($conDB->connect_errno) {
-			echo("Connect failed: %s\n" +  $conDB->connect_error);
-			exit();
-		}
-		
-		return($conDB->query($query));
-		echo "Query successfull";		
-		
+		$result = $conDB->query($query);
+		//echo "Query successfull";
 		$conDB->close();
+		return($result);
 	}
 
 	function connectDB(){
