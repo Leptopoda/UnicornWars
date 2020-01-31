@@ -35,7 +35,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button id='buttoneintragen' type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/Signup.webp"></button>
+					<button type="submit" name="submit"><img src="../Images/Signup.webp"></button>
 				</div>
 			</div>   
         </form>
@@ -74,18 +74,14 @@
 								while($row = $result->fetch_assoc()) {
 									echo("User already exist with username: ");
 									echo($row['username']);
+									header('Location: ../site/login.php');
 								}
 							} else {
 								$sql = "INSERT INTO users (email, username, password) VALUES ('$email','$username','$password');";
 								queryDB($sql);
 								echo("User was created");
+								//header('Location: ../site/scoreboard.php');
 							}
-							
-							
-							
-							
-							//header('Location: ../site/scoreboard.php');
-							
 						}
 					}
 				}
