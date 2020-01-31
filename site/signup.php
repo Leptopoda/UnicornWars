@@ -80,7 +80,7 @@
 								$sql = "INSERT INTO users (email, username, password) VALUES ('$email','$username','$password');";
 								queryDB($sql);
 								echo("User was created");
-								//header('Location: ../site/scoreboard.php');
+								header('Location: ../site/Account.php');
 							}
 						}
 					}

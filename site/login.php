@@ -56,7 +56,7 @@
 							while($row = $result->fetch_assoc()) {
 								if (password_verify($_POST['password'], $row['password'])) {
 									echo 'Password is valid!';
-									//header('Location: ../site/scoreboard.php');
+									header('Location: ../site/Account.php');
 								} else {
 									echo 'Invalid password.';
 								}
