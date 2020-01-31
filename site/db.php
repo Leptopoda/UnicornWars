@@ -8,7 +8,7 @@
 		}
 		
 		return($conDB->query($query));
-		echo "Query successfully";		
+		echo "Query successfull";		
 		
 		$conDB->close();
 	}

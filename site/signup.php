@@ -52,23 +52,23 @@
 				$username = $_POST['username'];
 				$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				
-				if(empty($email)){
+				if(empty($email)){ //is email set??
 					echo"Bitte Email eintragen";
 				}else{
-					if (empty($username)){
+					if (empty($username)){ // is username set??
 						echo"Bitte username eintragen";
 					}else{
-						if (empty($username)){
+						if (empty($password)){ //do we have a password
 							echo"Bitte username eintragen";
-						}else{ 
-							if (empty($username)){
-								echo"Bitte username eintragen";
-							}else{
-								$sql = "INSERT INTO users (email,username,password) VALUES ('$email', '$username', '$password')";
-								queryDB($sql);
-								echo($password);
-								//header('Location: ../site/scoreboard.php');
-							}
+						}else{
+							$sql = "INSERT INTO users (email, username, password) 
+								SELECT '$email','$username','$password' FROM DUAL
+								WHERE NOT EXISTS 
+								  (SELECT username FROM users WHERE email='$email');";	
+
+							echo(queryDB($sql));
+							//header('Location: ../site/scoreboard.php');
+							
 						}
 					}
 				}
