@@ -37,27 +37,40 @@
 				<div class="item">
 					<button id='buttoneintragen' type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/abschicken.webp"></button>
 				</div>
-				<div class="item">
-					<a href="../site/scoreboard.php"><img src="../Images/scoreboard.webp" alt="continue_schrift"></a>
-				</div>
 			</div>   
         </form>
 
         <?php
+			include_once 'db.php';
+			
 			if(isset($_POST['submit'])){
 				onClick();
 			}
 
 			function onClick(){
-				$Username = $_POST['Username'];
-				$score = $_POST['score'];
+				$email = $_POST['email'];
+				$username = $_POST['username'];
+				$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				
-				if(empty($Username)){
-					echo"Bitte Namen eintragen";
+				if(empty($email)){
+					echo"Bitte Email eintragen";
 				}else{
-					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$Username', '$score')";
-					queryDB($sql);
-					header('Location: ../site/scoreboard.php');
+					if (empty($username)){
+						echo"Bitte username eintragen";
+					}else{
+						if (empty($username)){
+							echo"Bitte username eintragen";
+						}else{ 
+							if (empty($username)){
+								echo"Bitte username eintragen";
+							}else{
+								$sql = "INSERT INTO users (email,username,password) VALUES ('$email', '$username', '$password')";
+								queryDB($sql);
+								echo($password);
+								//header('Location: ../site/scoreboard.php');
+							}
+						}
+					}
 				}
 			}
         ?>
