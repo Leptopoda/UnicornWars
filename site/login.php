@@ -5,6 +5,16 @@
         <title>login</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
 		<link rel="stylesheet" type="text/css" href="../Styles/gameOver.css">
+		<?php
+			include_once 'db.php';
+			
+			if(!isset($_COOKIE["login"])) {
+				echo "login denied";
+				header('Location: ../site/login.php');
+			}else{
+				$email = $_COOKIE["login"];
+			}
+        ?>
     </head>
 
     <body>
@@ -33,14 +43,13 @@
         </form>
 
         <?php
-			include_once 'db.php';
-			
 			if(isset($_POST['submit'])){
 				onClick();
 			}
 
 			function onClick(){
 				$email = $_POST['email'];
+				$time = date('Y-m-d H:i:s'); 
 				
 				if(empty($email)){ //is email set??
 					echo"Bitte Email eintragen";
@@ -56,6 +65,9 @@
 							while($row = $result->fetch_assoc()) {
 								if (password_verify($_POST['password'], $row['password'])) {
 									echo 'Password is valid!';
+									$sql = "UPDATE users SET lastlogin='$time' WHERE email='$email';";
+									queryDB($sql);
+									setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/"); // 86400 = 1 day
 									header('Location: ../site/Account.php');
 								} else {
 									echo 'Invalid password.';
