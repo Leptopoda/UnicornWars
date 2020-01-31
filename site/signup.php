@@ -11,7 +11,7 @@
         <form action="" method="post">
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/name.webp" alt="name_schrift">
+					<img class="item" src="../Images/Email.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" type="text" name="email" maxlength='60' placeholder="email"/>
@@ -19,7 +19,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/name.webp" alt="name_schrift">
+					<img class="item" src="../Images/Username.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" type="text" name="username" maxlength='15' placeholder="username"/>
@@ -27,7 +27,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/name.webp" alt="name_schrift">
+					<img class="item" src="../Images/Password.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldscore' type="password" name="password" placeholder="password" />
@@ -35,7 +35,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button id='buttoneintragen' type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/abschicken.webp"></button>
+					<button id='buttoneintragen' type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/Signup.webp"></button>
 				</div>
 			</div>   
         </form>
