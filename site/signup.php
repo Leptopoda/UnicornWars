@@ -5,6 +5,13 @@
         <title>sign up</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
 		<link rel="stylesheet" type="text/css" href="../Styles/gameOver.css">
+		<?php
+			include_once 'db.php';
+				
+            if(isset($_COOKIE["login"])) {
+				header('Location: ../site/Account.php');
+			}
+        ?>	
     </head>
 
     <body>
@@ -41,8 +48,6 @@
         </form>
 
         <?php
-			include_once 'db.php';
-			
 			if(isset($_POST['submit'])){
 				onClick();
 			}

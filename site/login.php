@@ -5,6 +5,13 @@
         <title>login</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
 		<link rel="stylesheet" type="text/css" href="../Styles/gameOver.css">
+		<?php
+			include_once 'db.php';
+			
+			if(isset($_COOKIE["login"])) {
+				header('Location: ../site/Acount.php');
+			}
+        ?>
     </head>
 
     <body>
@@ -33,20 +40,19 @@
         </form>
 
         <?php
-			include_once 'db.php';
-			
 			if(isset($_POST['submit'])){
 				onClick();
 			}
 
 			function onClick(){
 				$email = $_POST['email'];
+				$time = date('Y-m-d H:i:s'); 
 				
 				if(empty($email)){ //is email set??
 					echo"Bitte Email eintragen";
 				}else{
-					if (empty($password)){ //do we have a password
-						echo"Bitte username eintragen";
+					if (empty($_POST['password'])){ //do we have a password
+						echo"Bitte passwort eintragen";
 					}else{
 						
 						$sql = "SELECT password FROM users WHERE email='$email';";
@@ -56,6 +62,9 @@
 							while($row = $result->fetch_assoc()) {
 								if (password_verify($_POST['password'], $row['password'])) {
 									echo 'Password is valid!';
+									$sql = "UPDATE users SET lastlogin='$time' WHERE email='$email';";
+									queryDB($sql);
+									setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/"); // 86400 = 1 day
 									header('Location: ../site/Account.php');
 								} else {
 									echo 'Invalid password.';

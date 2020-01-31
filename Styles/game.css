@@ -8,23 +8,6 @@
 	padding:0
 }
 
-.container{
-	display: flex;
-	padding-top: 70px;
-	padding-bottom: 100px;
-	height: 100px;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction:column;
-}
-
-.item{
-	align-self: center;
-	align-items: center;
-	text-align: center;
-}
-
-
 #playground{
 	position:absolute;
 	top:250px;
