@@ -8,11 +8,8 @@
 		<?php
 			include_once 'db.php';
 			
-			if(!isset($_COOKIE["login"])) {
-				echo "login denied";
-				header('Location: ../site/login.php');
-			}else{
-				$email = $_COOKIE["login"];
+			if(isset($_COOKIE["login"])) {
+				header('Location: ../site/Acount.php');
 			}
         ?>
     </head>
