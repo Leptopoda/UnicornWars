@@ -3,7 +3,8 @@
 <html>
     <head>
         <title>scoreboard</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/neu.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+		<link rel="stylesheet" type="text/css" href="../Styles/scoreboard.css">
     </head>
 
     <body>
