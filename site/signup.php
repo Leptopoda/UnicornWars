@@ -84,6 +84,7 @@
 								$sql = "INSERT INTO users (email, username, password) VALUES ('$email','$username','$password');";
 								queryDB($sql);
 								echo("User was created");
+								setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/", localhost, isset($_SERVER["HTTPS"]), true); // 86400 = 1 day
 								header('Location: ../site/Account.php');
 							}
 						}
