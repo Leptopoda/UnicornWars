@@ -3,27 +3,27 @@
 <html>
     <head>
         <title>scoreboard</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
-		<link rel="stylesheet" type="text/css" href="../Styles/scoreboard.css">
+        <link rel="stylesheet" type="text/css" href="../../main/main.css">
+		<link rel="stylesheet" type="text/css" href="scoreboard.css">
     </head>
 
     <body>
         <div id='divplatzt'>
-            <img src="../Images/platz.webp" alt="platz_schrift">
+            <img src="./media/platz.webp" alt="platz_schrift">
         </div>
         <div id='divnamet'>
-            <img src="../Images/name.webp" alt="name_schrift">
+            <img src="./media/name.webp" alt="name_schrift">
         </div>
         <div id='divscoret'>
-            <img src="../Images/score.webp" alt="score_schrift">
+            <img src="./media/score.webp" alt="score_schrift">
         </div>
 
         <div id='divplayagain' >
-            <a href="../site/game.php"><img src="../Images/playagain.webp" alt="playagain_schrift" /></a>
+            <a href="../unicornwars/game.php"><img src="./media/playagain.webp" alt="playagain_schrift" /></a>
         </div>
 
         <?php
-			require_once 'db.php';
+			require_once('../..//main/db.php');
             
 			$sql = "SELECT * FROM scoreboard ORDER BY score desc";
 			ausgabe(queryDB($sql));

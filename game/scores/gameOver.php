@@ -3,12 +3,12 @@
 <html>
     <head>
         <title>Game Over</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../main/main.css">
     </head>
 
     <body>
         <?php
-			require_once 'db.php';
+			require_once '../../main/db.php';
             @$score = $_POST['dauer'];
 
             if(empty($score)){
@@ -29,7 +29,7 @@
         <form action="" method="post">
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/name.webp" alt="name_schrift">
+					<img class="item" src="./media/name.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" readonly="readonly" type="text" name="username" maxlength='15' value="<?php echo $username; ?>"/>
@@ -37,7 +37,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/score.webp" alt="score_schrift">
+					<img class="item" src="./media/score.webp" alt="score_schrift">
 				</div>
 				<div class="item">
 					<input class="item" readonly="readonly" type="text" name="score" value="<?php echo $score; ?>" />
@@ -45,10 +45,10 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/abschicken.webp"></button>
+					<button type="submit" name="submit" style="display:<?php echo$visible?>"><img src="./media/abschicken.webp"></button>
 				</div>
 				<div class="item">
-					<a href="../site/scoreboard.php"><img src="../Images/scoreboard.webp" alt="continue_schrift"></a>
+					<a href="scoreboard.php"><img src="./media/scoreboard.webp" alt="continue_schrift"></a>
 				</div>
 			</div>   
         </form>
@@ -78,7 +78,7 @@
 				}else{
 					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$username', '$score')";
 					queryDB($sql);
-					header('Location: ../site/scoreboard.php');
+					header('Location: scoreboard.php');
 				}
 			}
         ?>

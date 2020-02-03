@@ -3,15 +3,15 @@
 <html>
     <head>
         <title>GAME</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
-		<link rel="stylesheet" type="text/css" href="../Styles/game.css">
-		<script src="../scripts/jquery-3.4.1.min.js"></script>
-        <script src="../scripts/Game.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../main/main.css">
+		<link rel="stylesheet" type="text/css" href="game.css">
+		<script src="jquery-3.4.1.min.js"></script>
+        <script src="game.js"></script>
     </head>
 
     <body>
         
-		<form id="form_score" name="form_score" action="../site/gameOver.php" method="post">
+		<form id="form_score" name="form_score" action="../scores/gameOver.php" method="post">
 			<input id="scoredisplay" type="text" name="dauer" type="hidden"/>
 		</form>
         
@@ -26,29 +26,29 @@
 				</form>
 			</div>
 			
-			<img id="playground" src="../Images/Endhintergrund.webp"/>
-			<img id="playground2" src="../Images/Endhintergrund.webp"/>
+			<img id="playground" src="./media/endhintergrund.webp"/>
+			<img id="playground2" src="./media/Endhintergrund.webp"/>
 			
-			<img id="bottom" src="../Images/Boden.webp"/>
-			<img id="bottom2" src="../Images/Boden.webp"/>
+			<img id="bottom" src="./media/Boden.webp"/>
+			<img id="bottom2" src="./media/Boden.webp"/>
 			
-			<img id="hind1" src="../Images/blumen.webp"/>
-			<img id="hind2" src="../Images/lollis.webp"/>
-			<img id="hind3" src="../Images/lava.webp"/>
-			<img id="hind4" src="../Images/wasser.webp"/>
-			<img id="hind5" src="../Images/blumen.webp"/>
+			<img id="hind1" src="./media/blumen.webp"/>
+			<img id="hind2" src="./media/lollis.webp"/>
+			<img id="hind3" src="./media/lava.webp"/>
+			<img id="hind4" src="./media/wasser.webp"/>
+			<img id="hind5" src="./media/blumen.webp"/>
 			
-			<img id="player" src="../Images/sprung2.webp" style="display:none"/>
+			<img id="player" src="./media/sprung2.webp" style="display:none"/>
 			
-			<img class="lauf" src="../Images/lauf1.webp" style="display:block"/>
-			<img class="lauf" id="hilf" src="../Images/lauf3.webp" style="display:none"/>
+			<img class="lauf" src="./media/lauf1.webp" style="display:block"/>
+			<img class="lauf" id="hilf" src="./media/lauf3.webp" style="display:none"/>
 		</div>
         
 
         
-        <embed id="music" src="../Audio/Musik.mp3" loop="true" autostart="true" hidden="true" width="0" height="0"/>
-        <audio id="music" preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="../Audio/Musik.mp3" type="audio/mpeg"></audio>
-        <embed id="horse" src="../Audio/Horse Gallop Sound Effect.mp3" muted="false" loop="true" autostart="true" hidden="true" width="0" height="0"/>
-        <audio id="horse" muted="false" preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="../Audio/Horse Gallop Sound Effect.mp3" type="audio/mpeg"></audio>
+        <embed id="music" src="./media/Musik.mp3" loop="true" autostart="true" hidden="true" width="0" height="0"/>
+        <audio id="music" preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="./media/Musik.mp3" type="audio/mpeg"></audio>
+        <embed id="horse" src="./media/Horse Gallop Sound Effect.mp3" muted="false" loop="true" autostart="true" hidden="true" width="0" height="0"/>
+        <audio id="horse" muted="false" preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="./media/Horse Gallop Sound Effect.mp3" type="audio/mpeg"></audio>
     </body>
 </html>

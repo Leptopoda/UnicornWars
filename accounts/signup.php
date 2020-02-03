@@ -3,12 +3,12 @@
 <html>
     <head>
         <title>sign up</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../main/main.css">
 		<?php
-			require_once 'db.php';
+			require_once '../main/db.php';
 				
             if(isset($_COOKIE["login"])) {
-				header('Location: ../site/Account.php');
+				header('Location: acount.php');
 			}
         ?>	
     </head>
@@ -17,7 +17,7 @@
         <form action="" method="post">
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/Email.webp" alt="name_schrift">
+					<img class="item" src="./media/Email.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" type="text" name="email" maxlength='60' placeholder="email"/>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/Username.webp" alt="name_schrift">
+					<img class="item" src="./media/Username.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" type="text" name="username" maxlength='15' placeholder="username"/>
@@ -33,7 +33,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/Password.webp" alt="name_schrift">
+					<img class="item" src="./media/Password.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldscore' type="password" name="password" placeholder="password" />
@@ -41,7 +41,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button type="submit" name="submit"><img src="../Images/Signup.webp"></button>
+					<button type="submit" name="submit"><img src="./media/Signup.webp"></button>
 				</div>
 			</div>   
         </form>
@@ -78,14 +78,14 @@
 								while($row = $result->fetch_assoc()) {
 									echo("User already exist with username: ");
 									echo($row['username']);
-									header('Location: ../site/login.php');
+									header('Location: login.php');
 								}
 							} else {
 								$sql = "INSERT INTO users (email, username, password) VALUES ('$email','$username','$password');";
 								queryDB($sql);
 								echo("User was created");
 								setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/", localhost, isset($_SERVER["HTTPS"]), true); // 86400 = 1 day
-								header('Location: ../site/Account.php');
+								header('Location: account.php');
 							}
 						}
 					}

@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Unicron Wars</title>
-		<link rel="stylesheet" type="text/css" href="./Styles/main.css">
+		<link rel="stylesheet" type="text/css" href="./main/main.css">
     </head>
     
     
@@ -12,8 +12,8 @@
         <font color="white">
         
         <div class="center">
-            <img src='./Images/Logo.webp'/>
-            <a href="./site/intro.php"><img src="./Images/button.webp"></a>
+            <img src='./main/media/logo.webp'/>
+            <a href="./game/intro/intro.php"><img src="./main/media/button.webp"></a>
         </div>
     </body>
     
