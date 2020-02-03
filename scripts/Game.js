@@ -1,5 +1,3 @@
-window.onload = hindst; //aufrufen der startfunktion "hindst" (main)
-
 var intervals = new Array(); //Array, welches alle intervale speichert, sodass sie später wieder gelöscht werden können
 var life = 0;
 var eventon = true; //dient als lock um nicht zu springen, wenn man springt
@@ -11,6 +9,12 @@ var sprung = false;
 
 var cheatEnabled = 0;
 
+
+function lauf(){ //delay artige funktion
+    intervals[5] = setInterval(function(){
+        $( ".lauf").toggle(); //wächselt zwischen den beiden bildern, welche in der classe ein (html) hinterlegt sind (lauf1 und lauf2)
+    }, 200);
+}
 
 function playerup(){ //animiert den sprung //@toDo ggf über bilder in einer klasse lösen vgl. lauf()
 	sprung = true;
@@ -155,12 +159,6 @@ function startIntervall(i){//bewegt die hindernisse und berechnet die Position i
     }
 }
 
-function lauf(){ //delay artige funktion
-    intervals[5] = setInterval(function(){
-        $( ".lauf").toggle(); //wächselt zwischen den beiden bildern, welche in der classe ein (html) hinterlegt sind (lauf1 und lauf2)
-    }, 200);
-}
-
 function background(){
 	playgroundid.forEach(function(currentValue){ //bewegt den Hintergrund, um eine bewegung vorzutäuschen
 		var pos1 = document.getElementById(currentValue).style.left;
@@ -199,7 +197,7 @@ function lebenzahl (){ //ähnlich wie Stoppuhr wird hier die Lebensanzeige berec
   document.life.lifeinput.value = (((10 - life)*10)+"%");
 }
 
-function hindst() { //eher wie ein constructor daher auch der name hindernisSet (inzwischen nicht mehr)
+window.onload = function hindst() { //eher wie ein constructor daher auch der name hindernisSet (inzwischen nicht mehr)
     
 	hindid.forEach(function(currentValue, index){
 		document.getElementById(currentValue).style.right = "-100px";
@@ -222,7 +220,7 @@ function hindst() { //eher wie ein constructor daher auch der name hindernisSet 
 
     intervals[4] = setInterval(hind, 15); //ruft hind() periodisch auf
 	
-	document.addEventListener('keydown', function onpress(evt){
+	document.addEventListener("keydown", function onpress(evt){
 		var oImage = null;
 		oImage = $("#player"); //reference to Image
 			
