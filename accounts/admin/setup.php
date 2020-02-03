@@ -3,9 +3,9 @@
 <html>
     <head>
         <title>setup</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../../main/main.css">
 		<?php
-			require_once 'db.php';
+			require_once '../../main/db.php';
         ?>	
     </head>
 
