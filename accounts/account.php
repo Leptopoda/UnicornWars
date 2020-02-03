@@ -3,14 +3,14 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
-		<link rel="stylesheet" type="text/css" href="../Styles/account.css">
+        <link rel="stylesheet" type="text/css" href="../main/main.css">
+		<link rel="stylesheet" type="text/css" href="account.css">
 		<?php
-			require_once 'db.php';
+			require_once '../main/db.php';
 			
 			if(!isset($_COOKIE["login"])) {
 				echo "login denied";
-				header('Location: ../site/login.php');
+				header('Location: login.php');
 			}else{
 				$email = $_COOKIE["login"];
 			}
@@ -20,11 +20,11 @@
     <body>
 		<div class="container">
 			<!--<div class="item">
-				<img class="item" src="../Images/Username.webp" alt="name_schrift">
+				<img class="item" src="./media/Username.webp" alt="name_schrift">
 			</div>-->
 			
 			<form action="" method="post">
-				<button type="submit" class="item"  id="logout" name="logout"><img src='../Images/button.webp'></button>
+				<button type="submit" class="item"  id="logout" name="logout"><img src='../main/media/button.webp'></button>
 			</form>
 			
 		</div>
@@ -37,7 +37,7 @@
 			function logout(){
 				setcookie("login", "", time() - 3600, "/UnicornWars/");
 				echo("you've been loged out");
-				header('Location: ../site/login.php');
+				header('Location: login.php');
 			}
 		
 			$sql = "SELECT lastlogin, username FROM users WHERE email='$email';";

@@ -4,8 +4,8 @@
 
     <head>
         <title>Intro</title>
-		<link rel="stylesheet" type="text/css" href="../Styles/main.css">
-		<link rel="stylesheet" type="text/css" href="../Styles/intro.css">
+		<link rel="stylesheet" type="text/css" href="../../main/main.css">
+		<link rel="stylesheet" type="text/css" href="intro.css">
     </head>
     
     <body onload=startTimer();>
@@ -13,14 +13,14 @@
         <script>
             function startTimer(){
                 setTimeout(function() {
-                    window.open ('Game.php','_self',false)
+                    window.open ('../unicornwars/game.php','_self',false)
                 },60000);
             }
         </script>
         
-        <a href="../site/game.php"><img id="button" src='../Images/button.webp'></a>
-        <embed src='../Audio/Intro.mp3' loop='true' autostart='true' hidden='true' width='0' height='0'>
-        <audio preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="../Audio/Intro.mp3" type="audio/mpeg"></audio>    
+        <a href="../unicornwars/game.php"><img id="button" src='../../main/media/button.webp'></a>
+        <embed src='intro.mp3' loop='true' autostart='true' hidden='true' width='0' height='0'>
+        <audio preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="intro.mp3" type="audio/mpeg"></audio>    
         
         <div id="intro">
 			<div id="introcontent">
@@ -56,7 +56,6 @@
 				</p>
 			</div>
         </div>
-        
     </body>
     
 </html>

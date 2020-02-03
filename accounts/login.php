@@ -3,12 +3,12 @@
 <html>
     <head>
         <title>login</title>
-        <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+        <link rel="stylesheet" type="text/css" href="../main/main.css">
 		<?php
-			require_once 'db.php';
+			require_once '../main/db.php';
 			
 			if(isset($_COOKIE["login"])) {
-				header('Location: ../site/Acount.php');
+				header('Location: acount.php');
 			}
         ?>
     </head>
@@ -17,7 +17,7 @@
         <form action="" method="post">
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/Email.webp" alt="name_schrift">
+					<img class="item" src="./media/Email.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" type="text" name="email" maxlength='60' placeholder="email"/>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="../Images/Password.webp" alt="name_schrift">
+					<img class="item" src="./media/Password.webp" alt="name_schrift">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldscore' type="password" name="password" placeholder="password" />
@@ -33,7 +33,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button type="submit" name="submit"><img src="../Images/Login.webp"></button>
+					<button type="submit" name="submit"><img src="./media/Login.webp"></button>
 				</div>
 			</div>   
         </form>
@@ -64,7 +64,7 @@
 									$sql = "UPDATE users SET lastlogin='$time' WHERE email='$email';";
 									queryDB($sql);
 									setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/", localhost, isset($_SERVER["HTTPS"]), true); // 86400 = 1 day
-									header('Location: ../site/Account.php');
+									header('Location: account.php');
 								} else {
 									echo 'Invalid password.';
 								}
