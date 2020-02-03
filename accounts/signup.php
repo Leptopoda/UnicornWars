@@ -5,7 +5,7 @@
         <title>sign up</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
 		<?php
-			include_once 'db.php';
+			require_once 'db.php';
 				
             if(isset($_COOKIE["login"])) {
 				header('Location: ../site/Account.php');
@@ -84,6 +84,7 @@
 								$sql = "INSERT INTO users (email, username, password) VALUES ('$email','$username','$password');";
 								queryDB($sql);
 								echo("User was created");
+								setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/", localhost, isset($_SERVER["HTTPS"]), true); // 86400 = 1 day
 								header('Location: ../site/Account.php');
 							}
 						}
