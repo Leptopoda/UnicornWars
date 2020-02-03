@@ -197,6 +197,54 @@ function lebenzahl (){ //ähnlich wie Stoppuhr wird hier die Lebensanzeige berec
   document.life.lifeinput.value = (((10 - life)*10)+"%");
 }
 
+
+function onpress(evt){
+	var oImage = null;
+	oImage = $("#player"); //reference to Image
+		
+	var oPosition = oImage.position(); //reference to Image Position
+	
+	switch(evt.keyCode) { //wenn eine Taste gedrückt wird
+		case 32: //leertaste
+			if (eventon) { //@2Do let playerup return a value so we wouldn't need the eventon lock
+				eventon = false; //sperren, des springen, da bereits in sprung
+				document.getElementById("horse").muted = true; //galopp sound stumm stellen
+				document.getElementById("player").src = "../Images/sprung1.webp";
+				clearInterval(intervals[5]);
+				$(".lauf").css({"display":"none"});
+				$("#player").css({"display":"block"});
+				var win = document.body.clientWidth;
+				document.getElementById("player").style.top = ("550px");
+				playerup();
+			}
+			break;
+		case 80: //p taste
+			pause();
+			break;
+		// s saves
+		// r reloads
+		case 83: //s taste (suicide)
+			dead();
+			break;
+		case 52: //Was passiert denn hier??
+			cheatEnabled = 0.5;
+			break;
+		case 50: //Oder hier?? Ich habe leider keinen Plan xD
+			if(cheatEnabled === 0.5){
+				cheatEnabled += 0.5;
+			}
+			break;
+		case 67: //cheaten
+			if (cheatEnabled === 1){
+				life=0;
+			}
+			break;
+		//default:
+		//  alert(evt.keyCode);
+	}
+}
+
+
 window.onload = function hindst() { //eher wie ein constructor daher auch der name hindernisSet (inzwischen nicht mehr)
     
 	hindid.forEach(function(currentValue, index){
@@ -220,50 +268,6 @@ window.onload = function hindst() { //eher wie ein constructor daher auch der na
 
     intervals[4] = setInterval(hind, 15); //ruft hind() periodisch auf
 	
-	document.addEventListener("keydown", function onpress(evt){
-		var oImage = null;
-		oImage = $("#player"); //reference to Image
-			
-		var oPosition = oImage.position(); //reference to Image Position
-		
-		switch(evt.keyCode) { //wenn eine Taste gedrückt wird
-			case 32: //leertaste
-				if (eventon) { //@2Do let playerup return a value so we wouldn't need the eventon lock
-					eventon = false; //sperren, des springen, da bereits in sprung
-					document.getElementById("horse").muted = true; //galopp sound stumm stellen
-					document.getElementById("player").src = "../Images/sprung1.webp";
-					clearInterval(intervals[5]);
-					$(".lauf").css({"display":"none"});
-					$("#player").css({"display":"block"});
-					var win = document.body.clientWidth;
-					document.getElementById("player").style.top = ("550px");
-					playerup();
-				}
-				break;
-			case 80: //p taste
-				pause();
-				break;
-			// s saves
-			// r reloads
-			case 83: //s taste (suicide)
-				dead();
-				break;
-			case 52: //Was passiert denn hier??
-				cheatEnabled = 0.5;
-				break;
-			case 50: //Oder hier?? Ich habe leider keinen Plan xD
-				if(cheatEnabled === 0.5){
-					cheatEnabled += 0.5;
-				}
-				break;
-			case 67: //cheaten
-				if (cheatEnabled === 1){
-					life=0;
-				}
-				break;
-			//default:
-			//  alert(evt.keyCode);
-		}
-	});	
-}
+	document.addEventListener("keydown", onpress);	// if a key gets pressed the onpress function will be called
+};
 
