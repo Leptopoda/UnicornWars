@@ -8,7 +8,7 @@
 
     <body>
         <?php
-			include_once 'db.php';
+			require_once 'db.php';
             @$score = $_POST['dauer'];
 				
             if(empty($score)){

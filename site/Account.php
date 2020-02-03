@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
 		<link rel="stylesheet" type="text/css" href="../Styles/account.css">
 		<?php
-			include_once 'db.php';
+			require_once 'db.php';
 			
 			if(!isset($_COOKIE["login"])) {
 				echo "login denied";

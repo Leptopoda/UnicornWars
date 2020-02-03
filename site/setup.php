@@ -5,7 +5,7 @@
         <title>setup</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
 		<?php
-			include_once 'db.php';
+			require_once 'db.php';
         ?>	
     </head>
 

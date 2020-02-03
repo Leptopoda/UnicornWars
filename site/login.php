@@ -5,7 +5,7 @@
         <title>login</title>
         <link rel="stylesheet" type="text/css" href="../Styles/main.css">
 		<?php
-			include_once 'db.php';
+			require_once 'db.php';
 			
 			if(isset($_COOKIE["login"])) {
 				header('Location: ../site/Acount.php');
