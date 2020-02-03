@@ -11,21 +11,9 @@
 
     <body>
         
-		<div class="container" id='gameoverscreen'>
-			<div class="item">
-				<img class="item" src='../Images/gameover.webp'/>
-			</div>
-			
-			<form action="../site/gameOver.php" method="post">
-				<div class="item">
-					<input class="item" id="scoredisplay" type="text" name="dauer" readonly="readonly"/>
-				</div>
-
-				<div class="item">
-					<input class="item" type="image" src='../Images/continue.webp' name="sit">
-				</div>
-			</form>
-		</div>
+		<form id="form_score" name="form_score" action="../site/gameOver.php" method="post">
+			<input id="scoredisplay" type="text" name="dauer" type="hidden"/>
+		</form>
         
 
         <div id="game">

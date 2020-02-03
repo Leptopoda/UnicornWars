@@ -88,10 +88,29 @@ function dead(){ //funktion welcheaufgerufen wird, wenn der spieler stirbt. Sie 
 	intervals.forEach(function(currentValue){
 		clearInterval(currentValue);
 	});
-	
+
+	//document.getElementById('form_score').submit();
+	//$.post("../site/gameOver.php", { dauer: halloTest });
+	/*$.ajax({
+            type : "POST",  //type of method
+            url  : "http://localhost/UnicornWars/site/gameOver.php",  //your page
+            data : {'name' : '123456'},// passing the values
+            success: function(res){  
+                        console.log("datenGesende");  
+						//window.location.replace("http://localhost/UnicornWars/site/gameOver.php");
+						//do what you want here...
+                    }
+        });*/
+		
 	document.getElementById("scoredisplay").value = document.besuch.dauer.value;
 	document.getElementById("game").style.visibility = "hidden";
-	document.getElementById("gameoverscreen").style.visibility = "visible";
+	document.forms["form_score"].submit();
+}
+
+function lauf(){ //delay artige funktion
+    intervals[5] = setInterval(function(){
+        $( ".lauf").toggle(); //wächselt zwischen den beiden bildern, welche in der classe ein (html) hinterlegt sind (lauf1 und lauf2)
+    }, 200);
 }
 
 //crash

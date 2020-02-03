@@ -10,13 +10,20 @@
         <?php
 			require_once 'db.php';
             @$score = $_POST['dauer'];
-				
+
             if(empty($score)){
 				$visible = "none";
                 $score = "Bitte erst spielen";
             } else {
 				$visible = "visible";
             }
+			
+			if(isset($_COOKIE["login"])) {
+				$userid = $_COOKIE["login"];
+				$username = getUsername($userid);
+			}else{
+				$username = "Bitte Namen eintragen";
+			}
         ?>
 		
         <form action="" method="post">
@@ -25,7 +32,7 @@
 					<img class="item" src="../Images/name.webp" alt="name_schrift">
 				</div>
 				<div class="item">
-					<input class="item" id='textfeldname' type="text" name="Username" maxlength='15' placeholder="Bitte Name Eintragen"/>
+					<input class="item" readonly="readonly" type="text" name="username" maxlength='15' value="<?php echo $username; ?>"/>
 				</div>	
 			</div>
 			<div class="container">
@@ -33,12 +40,12 @@
 					<img class="item" src="../Images/score.webp" alt="score_schrift">
 				</div>
 				<div class="item">
-					<input class="item" id='textfeldscore' readonly="readonly" type="text" name="score" value="<?php echo $score; ?>" />
+					<input class="item" readonly="readonly" type="text" name="score" value="<?php echo $score; ?>" />
 				</div>
 			</div>
 			<div class="container">
 				<div class="item">
-					<button id='buttoneintragen' type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/abschicken.webp"></button>
+					<button type="submit" name="submit" style="display:<?php echo$visible?>"><img src="../Images/abschicken.webp"></button>
 				</div>
 				<div class="item">
 					<a href="../site/scoreboard.php"><img src="../Images/scoreboard.webp" alt="continue_schrift"></a>
@@ -50,15 +57,26 @@
 			if(isset($_POST['submit'])){
 				onClick();
 			}
+			
+			function getUsername($email){
+				$sql = "SELECT username FROM users WHERE email='$email';";
+				$result = queryDB($sql);
+				
+				if ($result->num_rows > 0) {// output data of each row
+					while($row = $result->fetch_assoc()) {
+						return $row['username'];
+					}
+				}
+			}
 
 			function onClick(){
-				$Username = $_POST['Username'];
+				$username = $_POST['username'];
 				$score = $_POST['score'];
 				
-				if(empty($Username)){
+				if(empty($username)){
 					echo"Bitte Namen eintragen";
 				}else{
-					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$Username', '$score')";
+					$sql = "INSERT INTO scoreboard (name,score) VALUES ('$username', '$score')";
 					queryDB($sql);
 					header('Location: ../site/scoreboard.php');
 				}

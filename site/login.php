@@ -63,7 +63,7 @@
 									echo 'Password is valid!';
 									$sql = "UPDATE users SET lastlogin='$time' WHERE email='$email';";
 									queryDB($sql);
-									setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/"); // 86400 = 1 day
+									setcookie("login", $email, time() + (86400 * 30), "/UnicornWars/", localhost, isset($_SERVER["HTTPS"]), true); // 86400 = 1 day
 									header('Location: ../site/Account.php');
 								} else {
 									echo 'Invalid password.';
