@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>setup</title>
+        <title>management</title>
         <link rel="stylesheet" type="text/css" href="../../main/main.css">
 		<?php
 			require_once 'management_bakend.php';
@@ -15,13 +15,11 @@
 				<div class="item">
 					<button type="submit" name="createTables">Create Tables</button>
 				</div>
-			</div>
-			
-			<div class="container">
+				
 				<div class="item">
 					<button type="submit" name="updateGame">Update Game</button>
 				</div>
-			</div> 
+			</div>
         </form>
 
         <?php
