@@ -1,8 +1,8 @@
 <?php
 	function update(){			
 		rename("updater.php","../../../updater.php"); //backup (move) update.php to complete the update 
-		require_once("../../../updater.php"); //include the moved file
 		chdir ("../../../"); //change the current directorry, php is working in
+		require_once("updater.php"); //include the moved file
 		runUpdate(); // call the update hook in the mooved file
 	}
 	
