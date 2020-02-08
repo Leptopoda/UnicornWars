@@ -2,13 +2,8 @@
 	function runUpdate(){		
 		echo("starting update");
 		
-		/*
-			$latest = $_GET('http://github.com/Leptopoda/UnicornWars/releases/latest');
-			https://developer.github.com/v3/repos/releases/#get-the-latest-release
-		*/
-		
-		//uncomment this line and set your proxy settings to enable updating behind a proxy
-		//stream_context_set_default(['http'=>['proxy'=>'proxy-host:proxy-port']]);
+		//$latest = $_GET('http://github.com/Leptopoda/UnicornWars/releases/latest');
+		//https://developer.github.com/v3/repos/releases/#get-the-latest-release
 		
 		delete_files("./UnicornWars/"); //deleting the old version of the game
 		download(); //downloading the new version of the game
