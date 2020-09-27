@@ -289,4 +289,3 @@ window.onload = function hindst() { //eher wie ein constructor daher auch der na
 	
 	document.addEventListener("keydown", onpress);	// if a key gets pressed the onpress function will be called
 };
-
