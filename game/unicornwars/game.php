@@ -27,10 +27,10 @@
 			</div>
 			
 			<img id="playground" src="./media/endhintergrund.webp"/>
-			<img id="playground2" src="./media/Endhintergrund.webp"/>
+			<img id="playground2" src="./media/endhintergrund.webp"/>
 			
-			<img id="bottom" src="./media/Boden.webp"/>
-			<img id="bottom2" src="./media/Boden.webp"/>
+			<img id="bottom" src="./media/boden.webp"/>
+			<img id="bottom2" src="./media/boden.webp"/>
 			
 			<img id="hind1" src="./media/blumen.webp"/>
 			<img id="hind2" src="./media/lollis.webp"/>
@@ -46,9 +46,9 @@
         
 
         
-        <embed id="music" src="./media/Musik.mp3" loop="true" autostart="true" hidden="true" width="0" height="0"/>
+        <embed id="music" src="./media/musik.mp3" loop="true" autostart="true" hidden="true" width="0" height="0"/>
         <audio id="music" preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="./media/Musik.mp3" type="audio/mpeg"></audio>
-        <embed id="horse" src="./media/Horse Gallop Sound Effect.mp3" muted="false" loop="true" autostart="true" hidden="true" width="0" height="0"/>
+        <embed id="horse" src="./media/horse Gallop Sound Effect.mp3" muted="false" loop="true" autostart="true" hidden="true" width="0" height="0"/>
         <audio id="horse" muted="false" preload="auto" autoplay="true" autoplay="1" loop="true" hidden="true" width="0" height="0"><source src="./media/Horse Gallop Sound Effect.mp3" type="audio/mpeg"></audio>
     </body>
 </html>
