@@ -23,7 +23,7 @@
         </div>
 
         <?php
-			require_once('../..//main/db.php');
+			require_once('../../main/db.php');
             
 			$sql = "SELECT * FROM scoreboard ORDER BY score desc";
 			ausgabe(queryDB($sql));

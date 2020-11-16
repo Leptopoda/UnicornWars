@@ -17,7 +17,7 @@
         <form action="" method="post">
 			<div class="container">
 				<div class="item">
-					<img class="item" src="./media/Email.webp" alt="name_schrift">
+					<img class="item" src="./media/email.webp" alt="email">
 				</div>
 				<div class="item">
 					<input class="item" type="text" name="email" maxlength='60' placeholder="email"/>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="./media/Username.webp" alt="name_schrift">
+					<img class="item" src="./media/username.webp" alt="username">
 				</div>
 				<div class="item">
 					<input class="item" type="text" name="username" maxlength='15' placeholder="username"/>
@@ -33,7 +33,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<img class="item" src="./media/Password.webp" alt="name_schrift">
+					<img class="item" src="./media/password.webp" alt="password">
 				</div>
 				<div class="item">
 					<input class="item" id='textfeldscore' type="password" name="password" placeholder="password" />
@@ -41,7 +41,7 @@
 			</div>
 			<div class="container">
 				<div class="item">
-					<button type="submit" name="submit"><img src="./media/Signup.webp"></button>
+					<button type="submit" name="submit"><img src="./media/signup.webp"></button>
 				</div>
 			</div>   
         </form>
