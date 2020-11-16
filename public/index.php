@@ -15,6 +15,9 @@
             <img src='./main/media/logo.webp'/>
             <a href="./game/intro/intro.php"><img src="./main/media/button.webp"></a>
         </div>
+        <div class="center">
+            <a href="./accounts/account.php"><img src='./main/media/account.webp'></a>
+        </div>
     </body>
     
 </html>
