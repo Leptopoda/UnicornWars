@@ -1,0 +1,3 @@
+[submodule "docker"]
+	path = docker
+	url = git@gitlab.rimikis.de:Leptopoda/lemp-docker.git
