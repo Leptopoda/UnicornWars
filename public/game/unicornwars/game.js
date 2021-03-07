@@ -102,9 +102,11 @@ function dead(){ //funktion welcheaufgerufen wird, wenn der spieler stirbt. Sie 
                     }
         });*/
 		
-	document.getElementById("scoredisplay").value = document.besuch.dauer.value;
+	//document.getElementById("scoredisplay").value = document.besuch.dauer.value;
 	document.getElementById("game").style.visibility = "hidden";
-	document.forms["form_score"].submit();
+    sessionStorage.setItem("score", document.besuch.dauer.value);
+    window.open ('/game/scores/gameOver.html','_self',false)
+	//document.forms["form_score"].submit();
 }
 
 function lauf(){ //delay artige funktion
