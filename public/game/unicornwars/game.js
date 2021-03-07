@@ -20,18 +20,18 @@ function playerup(){ //animiert den sprung //@toDo ggf über bilder in einer kla
 	sprung = true;
 	$( "#player" ).animate({top:"350px"},700,"swing",
 		function(){
-            document.getElementById("player").src = "./media/sprung2.webp";
+            document.getElementById("player").src = "media/sprung2.webp";
             setTimeout(function(){
-                document.getElementById("player").src = "./media/sprung3.webp",
+                document.getElementById("player").src = "media/sprung3.webp",
                 $( "#player" ).animate({top:"550px"},700,"swing",
                     function() {
-						document.getElementById("player").src = "./media/sprung2.webp";
-						sprung = false;
-						$("#hilf").css({"display":"block"});
-						$("#player").css({"display":"none"});
-						eventon = true;
-						document.getElementById("horse").muted = false;
-						lauf();
+                        document.getElementById("player").src = "media/sprung2.webp";
+                        sprung = false;
+                        $("#hilf").css({"display":"block"});
+                        $("#player").css({"display":"none"});
+                        eventon = true;
+                        document.getElementById("horse").muted = false;
+                        lauf();
                     }
                 ); 
             }, 200);
@@ -90,7 +90,7 @@ function dead(){ //funktion welcheaufgerufen wird, wenn der spieler stirbt. Sie 
 	});
 
 	//document.getElementById('form_score').submit();
-	//$.post("../site/gameOver.php", { dauer: halloTest });
+	//$.post(".site/gameOver.php", { dauer: halloTest });
 	/*$.ajax({
             type : "POST",  //type of method
             url  : "http://localhost/UnicornWars/site/gameOver.php",  //your page
@@ -228,7 +228,7 @@ function onpress(evt){
 			if (eventon) { //@2Do let playerup return a value so we wouldn't need the eventon lock
 				eventon = false; //sperren, des springen, da bereits in sprung
 				document.getElementById("horse").muted = true; //galopp sound stumm stellen
-				document.getElementById("player").src = "./media/sprung1.webp";
+				document.getElementById("player").src = "media/sprung1.webp";
 				clearInterval(intervals[5]);
 				$(".lauf").css({"display":"none"});
 				$("#player").css({"display":"block"});
