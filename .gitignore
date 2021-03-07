@@ -1,2 +1,2 @@
-./db-data
-./logs
+wrangler.toml
+./node_modules
