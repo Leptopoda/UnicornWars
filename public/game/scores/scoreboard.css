@@ -1,27 +1,26 @@
-
 #divplatzt{
-	margin-left:20em;
+    margin-left:20em;
 }
 
 #divnamet{
-	margin-top:-9.2em;
-	margin-left:49.5em;
+    margin-top:-9.2em;
+    margin-left:49.5em;
 }
 
 #divscoret{
-	margin-top:-9.1em;
-	margin-left:75em;	
+    margin-top:-9.1em;
+    margin-left:75em;	
 }
 #divplayagain{
-	margin-top:-5em;
+    margin-top:-5em;
 }
 
 table{
-	margin-left:auto;
-	margin-right:auto;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 td{
-	width:450px;
-	text-align:center;
+    width:450px;
+    text-align:center;
 }

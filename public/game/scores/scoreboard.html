@@ -4,7 +4,7 @@
     <head>
         <title>scoreboard</title>
         <link rel="stylesheet" type="text/css" href="/main/main.css">
-		<link rel="stylesheet" type="text/css" href="scoreboard.css">
+        <link rel="stylesheet" type="text/css" href="scoreboard.css">
     </head>
 
     <body>
@@ -23,11 +23,11 @@
         </div>
 
         <?php
-			require_once('../../main/db.php');
+            require_once('../../main/db.php');
             
-			$sql = "SELECT * FROM scoreboard ORDER BY score desc";
-			ausgabe(queryDB($sql));
-			
+            $sql = "SELECT * FROM scoreboard ORDER BY score desc";
+            ausgabe(queryDB($sql));
+            
             function ausgabe($daten){
                 echo "<table><tr></tr>";
                 for ($i = 1; $row=$daten->fetch_assoc(); $i++){

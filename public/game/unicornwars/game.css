@@ -1,87 +1,87 @@
 #gameoverscreen {
-	width:100%;
-	height:100%;
-	visibility:hidden;
-	position:absolute; 
-	margin:0; 
-	margin-left:0px; 
-	padding:0
+    width:100%;
+    height:100%;
+    visibility:hidden;
+    position:absolute; 
+    margin:0; 
+    margin-left:0px; 
+    padding:0
 }
 
 #playground{
-	position:absolute;
-	top:250px;
-	left:0px;
-	right:0px;
-	height:400px;	
+    position:absolute;
+    top:250px;
+    left:0px;
+    right:0px;
+    height:400px;	
 }
 #playground2{
-	position:absolute;
-	top:250px;
-	left:3409px;
-	height:400px;	
+    position:absolute;
+    top:250px;
+    left:3409px;
+    height:400px;	
 }
 #bottom{
-	position:absolute;
-	top:650px;
-	left:0px;
-	height:75px;
+    position:absolute;
+    top:650px;
+    left:0px;
+    height:75px;
 }
 #bottom2{
-	position:absolute;
-	top:650px;
-	left:6910px;
-	height:75px;
+    position:absolute;
+    top:650px;
+    left:6910px;
+    height:75px;
 }
 #player{
-	position:absolute;
-	top:550px;
-	left:50px;
-	width:100px;
-	height:100px;
-	
+    position:absolute;
+    top:550px;
+    left:50px;
+    width:100px;
+    height:100px;
+    
 }
 
 #hind1{
-	position:absolute;
-	top:550px;
-	right:-100px;
-	width:100px;
+    position:absolute;
+    top:550px;
+    right:-100px;
+    width:100px;
 }
 
 #hind2{
-	position:absolute;
-	top:550px;
-	right:-100px;
-	width:100px;	
+    position:absolute;
+    top:550px;
+    right:-100px;
+    width:100px;	
 }
 
 #hind3{
-	position:absolute;
-	top:625px;
-	right:-100px;
-	width:100px;
+    position:absolute;
+    top:625px;
+    right:-100px;
+    width:100px;
 }
 
 #hind4{
-	position:absolute;
-	top:625px;
-	right:-100px;
-	width:100px;
+    position:absolute;
+    top:625px;
+    right:-100px;
+    width:100px;
 }
 
 #hind5{
-	position:absolute;
-	top:550px;
-	right:-100px;
-	width:100px;
-	
+    position:absolute;
+    top:550px;
+    right:-100px;
+    width:100px;
+    
 }
 
 .lauf{
-	position:absolute;
-	top:550px;
-	left:50px;
-	width:100px;
-	height:100px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    width:100px;
+    height:100px;
 }
