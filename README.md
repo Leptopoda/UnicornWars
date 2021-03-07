@@ -1,8 +1,15 @@
-### Moved!
-## This project has been moved to gitlab: https://gitlab.com/Leptopoda07/UnicornWars
+# 👷 `worker-template` Hello World
 
-### UnicronWars
+A template for kick starting a Cloudflare worker project.
 
-This project is a web based jump and run game. We developed this as a project in School and don't care about this code anymore (not that we ever cared) so feel free to fork ;)
+[`index.js`](https://github.com/cloudflare/worker-template/blob/master/index.js) is the content of the Workers script.
 
-font by https://fontmeme.com/star-wars-font/
+#### Wrangler
+
+To generate using [wrangler](https://github.com/cloudflare/wrangler)
+
+```
+wrangler generate projectname https://github.com/cloudflare/worker-template
+```
+
+Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
