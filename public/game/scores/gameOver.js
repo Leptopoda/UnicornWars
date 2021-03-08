@@ -14,12 +14,25 @@ window.onload = function () {
 function submit(){
     score = sessionStorage.getItem("score");
     username = document.getElementById("username").value
-    if (username !== ""){        
+    
+    if (username !== "" && score !== null){
         sessionStorage.removeItem("score");
         sessionStorage.setItem("username", username);
         
-        fetch("/", { method: 'PUT', body: JSON.stringify({ username: username, score: score }) })
+        fetch('scoreboard.json')
+        .then(response => response.json())
+        .then(data => {
+            data.scores = data.scores.concat({ id: data.scores.length + 1, username: username, score: score })            
+            fetch("/", { method: 'PUT', body: JSON.stringify(data) })
+        });
         
-        //window.open ('scoreboard.html','_self',false);
+        /*const json = '{"scores":[{"id":1,"username":"System","score":"000"}]}';
+        const data = JSON.parse(json)
+        alert(JSON.stringify(data.scores))
+        data.scores = data.scores.concat({ id: data.scores.length + 1, username: username, score: score })
+        alert(JSON.stringify(data.scores))
+        alert(JSON.stringify(data))*/
+        
+        window.open ('scoreboard.html','_self',false);
     }
 }

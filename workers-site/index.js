@@ -1,7 +1,15 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
 //import {v4 as uuidv4} from 'uuid'
 
-const defaultData = { todos: [] }
+const defaultData = { scores: [
+                        {
+                          id: 1,
+                          username: "System",
+                          score: '000',
+                        },
+                      ],
+                    }
+const cacheKey = `data-1`
 
 const setCache = (key, data) => SCOREBOARD.put(key, data)
 const getCache = key => SCOREBOARD.get(key)
@@ -12,7 +20,7 @@ async function updateKV(request) {
   //const cacheKey = `data-${uuid}`
   try {
     JSON.parse(body)
-    await setCache('data', body)
+    await setCache(cacheKey, body)
     //console.log('done ' + body)
     return new Response(body, { status: 200 })
   } catch (err) {
@@ -20,33 +28,39 @@ async function updateKV(request) {
   }
 }
 
-async function getKV() {
-  const body = await request.text()
-  //const uuid = uuidv4()
-  //const cacheKey = `data-${uuid}`
-  try {
-    JSON.parse(body)
-    await setCache(body)
-    //console.log('done ' + body)
-    return new Response(body, { status: 200 })
-  } catch (err) {
-    return new Response(err, { status: 500 })
-  }
+async function getDynamicKV(){
+    let data
+    const cache = await getCache(cacheKey)
+    //console.log('cache ' + cache)
+    if (!cache) {
+      await setCache(cacheKey, JSON.stringify(defaultData))
+      data = JSON.stringify(defaultData)
+    } else {
+      data = cache
+      //console.log('data2 ' + data)
+    }
+    console.log('data ' + cache)
+    
+    return new Response(data, {
+      headers: { 'Content-Type': 'application/json' },
+    })
 }
 
 async function handleRsponse(event) {
   const request = event.request
   if (request.method === 'PUT') {
     return updateKV(request)
-  } else {
-      return handleKV(event)
+  } else if (request.url.includes('scoreboard.json')){
+    //console.log('scoreboard.json accessed')
+    return getDynamicKV()
+  }{
+    return getStaticKV(event)
   }
 }
 
-async function handleKV(event) {
+async function getStaticKV(event) {
   const url = new URL(event.request.url)
-  let options = {}
-
+  let options = {}    
   try {
     if (DEBUG) {
       // customize caching
@@ -55,13 +69,6 @@ async function handleKV(event) {
       }
     }
     
-    if (event.request.url.includes('scoreboard.json')){
-      const data = await getCache('data')
-      return new Response(data, {
-        headers: { 'Content-Type': 'application/json' },
-        })
-    }
-
     const page = await getAssetFromKV(event, options)
     
     // allow headers to be altered
