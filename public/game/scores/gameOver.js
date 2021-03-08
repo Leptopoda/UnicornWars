@@ -12,9 +12,14 @@ window.onload = function () {
 }
 
 function submit(){
-    if (document.getElementById("username").value !== ""){
+    score = sessionStorage.getItem("score");
+    username = document.getElementById("username").value
+    if (username !== ""){        
         sessionStorage.removeItem("score");
-        sessionStorage.setItem("username", document.getElementById("username").innerHTML);
-        window.open ('scoreboard.html','_self',false);
+        sessionStorage.setItem("username", username);
+        
+        fetch("/", { method: 'PUT', body: JSON.stringify({ username: username, score: score }) })
+        
+        //window.open ('scoreboard.html','_self',false);
     }
 }

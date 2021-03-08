@@ -1,38 +1,51 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
+//import {v4 as uuidv4} from 'uuid'
 
-/**
- * The DEBUG flag will do two things that help during development:
- * 1. we will skip caching on the edge, which makes it easier to
- *    debug.
- * 2. we will return an error message on exception in your Response rather
- *    than the default 404.html page.
- */
-const DEBUG = false
+const defaultData = { todos: [] }
 
-addEventListener('fetch', event => {
+const setCache = (key, data) => SCOREBOARD.put(key, data)
+const getCache = key => SCOREBOARD.get(key)
+
+async function updateKV(request) {
+  const body = await request.text()
+  //const uuid = uuidv4()
+  //const cacheKey = `data-${uuid}`
   try {
-    event.respondWith(handleEvent(event))
-  } catch (e) {
-    if (DEBUG) {
-      return event.respondWith(
-        new Response(e.message || e.toString(), {
-          status: 500,
-        }),
-      )
-    }
-    event.respondWith(new Response('Internal Error', { status: 500 }))
+    JSON.parse(body)
+    await setCache('data', body)
+    //console.log('done ' + body)
+    return new Response(body, { status: 200 })
+  } catch (err) {
+    return new Response(err, { status: 500 })
   }
-})
+}
 
-async function handleEvent(event) {
+async function getKV() {
+  const body = await request.text()
+  //const uuid = uuidv4()
+  //const cacheKey = `data-${uuid}`
+  try {
+    JSON.parse(body)
+    await setCache(body)
+    //console.log('done ' + body)
+    return new Response(body, { status: 200 })
+  } catch (err) {
+    return new Response(err, { status: 500 })
+  }
+}
+
+async function handleRsponse(event) {
+  const request = event.request
+  if (request.method === 'PUT') {
+    return updateKV(request)
+  } else {
+      return handleKV(event)
+  }
+}
+
+async function handleKV(event) {
   const url = new URL(event.request.url)
   let options = {}
-
-  /**
-   * You can add custom logic to how we fetch your assets
-   * by configuring the function `mapRequestToAsset`
-   */
-  // options.mapRequestToAsset = handlePrefix(/^\/docs/)
 
   try {
     if (DEBUG) {
@@ -41,9 +54,16 @@ async function handleEvent(event) {
         bypassCache: true,
       }
     }
+    
+    if (event.request.url.includes('scoreboard.json')){
+      const data = await getCache('data')
+      return new Response(data, {
+        headers: { 'Content-Type': 'application/json' },
+        })
+    }
 
     const page = await getAssetFromKV(event, options)
-
+    
     // allow headers to be altered
     const response = new Response(page.body, page)
 
@@ -71,23 +91,19 @@ async function handleEvent(event) {
   }
 }
 
-/**
- * Here's one example of how to modify a request to
- * remove a specific prefix, in this case `/docs` from
- * the url. This can be useful if you are deploying to a
- * route on a zone, or if you only want your static content
- * to exist at a specific path.
- */
-function handlePrefix(prefix) {
-  return request => {
-    // compute the default (e.g. / -> index.html)
-    let defaultAssetKey = mapRequestToAsset(request)
-    let url = new URL(defaultAssetKey.url)
+const DEBUG = false
 
-    // strip the prefix from the path for lookup
-    url.pathname = url.pathname.replace(prefix, '/')
-
-    // inherit all other props from the default request
-    return new Request(url.toString(), defaultAssetKey)
+addEventListener('fetch', event => {
+  try {
+    event.respondWith(handleRsponse(event))
+  } catch (e) {
+    if (DEBUG) {
+      return event.respondWith(
+        new Response(e.message || e.toString(), {
+          status: 500,
+        }),
+      )
+    }
+    event.respondWith(new Response('Internal Error', { status: 500 }))
   }
-}
+})
