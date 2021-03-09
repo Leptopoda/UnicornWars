@@ -22,8 +22,9 @@ function submit(){
         fetch('scoreboard.json')
         .then(response => response.json())
         .then(data => {
-            data.scores = data.scores.concat({ id: data.scores.length + 1, username: username, score: score })            
+            data.scores = data.scores.concat({ /*id: data.scores.length + 1,*/ username: username, score: score })            
             fetch("/", { method: 'PUT', body: JSON.stringify(data) })
+            window.open ('scoreboard.html','_self',false);
         });
         
         /*const json = '{"scores":[{"id":1,"username":"System","score":"000"}]}';
@@ -32,7 +33,5 @@ function submit(){
         data.scores = data.scores.concat({ id: data.scores.length + 1, username: username, score: score })
         alert(JSON.stringify(data.scores))
         alert(JSON.stringify(data))*/
-        
-        window.open ('scoreboard.html','_self',false);
     }
 }
