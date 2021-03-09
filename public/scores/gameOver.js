@@ -11,7 +11,7 @@ window.onload = function () {
     document.getElementById("score").innerHTML = score;
 }
 
-function submit(){
+async function submit(){
     score = sessionStorage.getItem("score");
     username = document.getElementById("username").value
     
@@ -19,13 +19,11 @@ function submit(){
         sessionStorage.removeItem("score");
         sessionStorage.setItem("username", username);
         
-        fetch('scoreboard.json')
+        const data = await fetch('scoreboard.json')
         .then(response => response.json())
-        .then(data => {
-            data.scores = data.scores.concat({ /*id: data.scores.length + 1,*/ username: username, score: score })            
-            fetch("/", { method: 'PUT', body: JSON.stringify(data) })
-            window.open ('scoreboard.html','_self',false);
-        });
+        data.scores = data.scores.concat({ /*id: data.scores.length + 1,*/ username: username, score: score })            
+        await fetch("/", { method: 'PUT', body: JSON.stringify(data) })
+        window.location.href = "scoreboard.html";
         
         /*const json = '{"scores":[{"id":1,"username":"System","score":"000"}]}';
         const data = JSON.parse(json)
