@@ -83,15 +83,15 @@ function hind() {//erzeugt zufällig neue Hindernisse
 
 function dead(){ //funktion welcheaufgerufen wird, wenn der spieler stirbt. Sie cleard alle intervalle
     //console.log("tot"); //der Tod wird auf die Webconsole ausgegeben
-    life = 0; //life wird wieder auf null gesetzt, da browser den zustand der variablen von javascript zwischenspeichert
     sessionStorage.setItem("score", document.besuch.dauer.value); //save score to sessionStorage
+    life = 0; //life wird wieder auf null gesetzt, da browser den zustand der variablen von javascript zwischenspeichert
     
     intervals.forEach(function(currentValue){
         clearInterval(currentValue);
     });
     //document.getElementById("scoredisplay").value = document.besuch.dauer.value;
     document.getElementById("game").style.visibility = "hidden";
-    window.open ('/game/scores/gameOver.html','_self',false)
+    window.open ('/scores/gameOver.html','_self',false)
 }
 
 function lauf(){ //delay artige funktion
