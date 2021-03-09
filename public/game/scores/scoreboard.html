@@ -3,8 +3,9 @@
 <html>
     <head>
         <title>scoreboard</title>
-        <link rel="stylesheet" type="text/css" href="/main/main.css">
+        <link rel="stylesheet" type="text/css" href="../../main/main.css">
         <link rel="stylesheet" type="text/css" href="scoreboard.css">
+        <script src="scoreboard.js"></script>
     </head>
 
     <body>
@@ -19,26 +20,7 @@
         </div>
 
         <div id='divplayagain' >
-            <a href="../unicornwars/game.html"><img src="media/playagain.webp" alt="playagain_schrift" /></a>
+            <a href="/game/unicornwars/game.html"><img src="media/playagain.webp" alt="playagain_schrift" /></a>
         </div>
-
-        <?php
-            require_once('../../main/db.php');
-            
-            $sql = "SELECT * FROM scoreboard ORDER BY score desc";
-            ausgabe(queryDB($sql));
-            
-            function ausgabe($daten){
-                echo "<table><tr></tr>";
-                for ($i = 1; $row=$daten->fetch_assoc(); $i++){
-                    echo "<tr>";
-                    echo "<td>" . $i . "<a></a>" ."</td>";
-                    echo "<td>" . $row['name'] . "</td>";
-                    echo "<td>" . $row['score'] . "</td>";
-                    echo "</tr>";
-                }
-                echo "</table>";
-            }
-        ?>
     </body>
 </html>

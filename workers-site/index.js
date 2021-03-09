@@ -2,11 +2,11 @@ import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
 //import {v4 as uuidv4} from 'uuid'
 
 const defaultData = { scores: [
-                        {
+                        /*{
                           id: 1,
                           username: "System",
                           score: '000',
-                        },
+                        },*/
                       ],
                     }
 const cacheKey = `data-1`
