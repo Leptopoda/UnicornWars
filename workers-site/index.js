@@ -66,6 +66,7 @@ async function getStaticKV(event) {
     response.headers.set('X-Frame-Options', 'DENY')
     response.headers.set('Referrer-Policy', 'unsafe-url')
     response.headers.set('Feature-Policy', 'none')
+    response.headers.set("cache-control", "max-age=2592000");
 
     return response
 
