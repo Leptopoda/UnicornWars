@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "UnicornWars",
-  "version": "1.2.3b",
+  "version": "2.0.0",
   "description": "A fun little jump and run game",
   "main": "index.js",
   "scripts": {
