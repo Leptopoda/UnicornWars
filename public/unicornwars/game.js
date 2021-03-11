@@ -2,9 +2,9 @@ var intervals = new Array(); //Array, welches alle intervale speichert, sodass s
 var life = 0;
 var eventon = true; //dient als lock um nicht zu springen, wenn man springt
 var dist = 80; //@2DO integrate with score
-var hindid = ["hind1","hind2","hind3","hind4","hind5"]; //IDs der bilddateien
-var bottomid = ["bottom","bottom2"];
-var playgroundid = ["playground", "playground2"];
+const hindid = ["hind1","hind2","hind3","hind4","hind5"]; //IDs der bilddateien
+const bottomid = ["bottom","bottom2"];
+const playgroundid = ["playground", "playground2"];
 var sprung = false;
 
 var cheatEnabled = 0;
@@ -273,5 +273,5 @@ window.onload = function hindst() { //eher wie ein constructor daher auch der na
 
     intervals[4] = setInterval(hind, 15); //ruft hind() periodisch auf
     
-    document.addEventListener("keydown", onpress);	// if a key gets pressed the onpress function will be called
+    document.addEventListener("keydown", onpress); // if a key gets pressed the onpress function will be called
 };
