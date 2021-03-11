@@ -19,10 +19,10 @@ async function submit(){
         sessionStorage.removeItem("score");
         sessionStorage.setItem("username", username);
         
-        const data = await fetch('unicornwars.leptopoda.workers.dev/scoreboard.json')
+        const data = await fetch('scoreboard.json')
         .then(response => response.json())
         data.scores = data.scores.concat({ /*id: data.scores.length + 1,*/ username: username, score: score })            
-        await fetch("unicornwars.leptopoda.workers.dev/", { method: 'PUT', body: JSON.stringify(data) })
+        await fetch("/", { method: 'PUT', body: JSON.stringify(data) })
         window.location.href = "scoreboard.html";
         
         /*const json = '{"scores":[{"id":1,"username":"System","score":"000"}]}';

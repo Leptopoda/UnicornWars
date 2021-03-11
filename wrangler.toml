@@ -7,3 +7,6 @@ zone_id = ""
 kv_namespaces = [ 
          { binding = "SCOREBOARD", id = "", preview_id = "" }
 ]
+
+[site]
+bucket = "./public"

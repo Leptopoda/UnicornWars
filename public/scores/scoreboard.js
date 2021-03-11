@@ -1,5 +1,5 @@
 window.onload = function() {
-  fetch('unicornwars.leptopoda.workers.dev/scoreboard.json')
+  fetch('scoreboard.json')
   .then(response => response.json())
   .then(data => display(data.scores));
 }
