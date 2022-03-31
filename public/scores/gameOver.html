@@ -1,34 +1,37 @@
 <!Doctype html>
 
 <html>
-    <head>
-        <title>Game Over</title>
-        <link rel="stylesheet" type="text/css" href="/main.css">
-        <script src="gameOver.js"></script>
-    </head>
 
-    <body>
-        <div class="container">
-            <div class="item">
-                <img class="item" src="media/name.webp" alt="name_schrift">
-            </div>
-            <div class="item">
-                <input class="item" id="username" type="text" name="username" maxlength='15' placeholder="Bitte Namen eintragen"/>
-            </div>
+<head>
+    <title>Game Over</title>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <script src="gameOver.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <img class="item" src="media/name.webp" alt="name_schrift">
         </div>
-        <div class="container">
-            <div class="item">
-                <img class="item" src="media/score.webp" alt="score_schrift">
-            </div>
-            <div class="item" id="score"></div>
+        <div class="item">
+            <input class="item" id="username" type="text" name="username" maxlength='15'
+                placeholder="Bitte Namen eintragen" />
         </div>
-        <div class="container">
-            <div class="item">
-                <button onclick="submit()" id="submit"><img src="media/abschicken.webp"></button>
-            </div>
-            <div class="item">
-                <a href="scoreboard.html"><img src="media/scoreboard.webp" alt="continue_schrift"></a>
-            </div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <img class="item" src="media/score.webp" alt="score_schrift">
         </div>
-    </body>
+        <div class="item" id="score"></div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <button onclick="submit()" id="submit"><img src="media/abschicken.webp"></button>
+        </div>
+        <div class="item">
+            <a href="scoreboard.html"><img src="media/scoreboard.webp" alt="continue_schrift"></a>
+        </div>
+    </div>
+</body>
+
 </html>
